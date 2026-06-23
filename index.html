@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Secuencia WhatsApp — Portada Blanca</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Arial',sans-serif;background:#f4f4f8;color:#1a1a2e;padding:2rem 1rem}
+.wrap{max-width:780px;margin:0 auto}
+.seq-hdr{background:#22285D;border-radius:16px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.seq-hdr-t{color:#fff;font-size:18px;font-weight:700;margin:0}
+.seq-hdr-s{color:#EBFFC4;font-size:12px;margin-top:3px}
+.pill{font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;white-space:nowrap;display:inline-block}
+.pill-purple{background:#4519FF;color:#fff}
+.pill-green{background:#EBFFC4;color:#1a4a00}
+.pill-blue{background:#e6f0ff;color:#0a3080}
+.pill-orange{background:#fff0e0;color:#7a3500}
+.pill-red{background:#fce8e8;color:#7a0000}
+.pill-trust{background:#eae6ff;color:#22285D}
+.calc-box{background:#eeeef4;border-radius:14px;padding:1.25rem;margin-bottom:1.5rem}
+.sec-title{font-size:13px;font-weight:700;color:#4519FF;text-transform:uppercase;letter-spacing:.07em;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:10px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:10px}
+.fi{display:flex;flex-direction:column;gap:4px}
+.fi label{font-size:12px;color:#555}
+.fi input,.fi select{font-size:13px;padding:7px 10px;border:1px solid #ccc;border-radius:8px;background:#fff;color:#1a1a2e;outline:none}
+.fi input:focus,.fi select:focus{border-color:#4519FF}
+.res-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
+.res-card{background:#fff;border:1px solid #ddd;border-radius:10px;padding:10px 12px;text-align:center}
+.res-lbl{font-size:11px;color:#777;margin-bottom:4px}
+.res-val{font-size:17px;font-weight:700;color:#4519FF}
+.phase{margin-bottom:1.5rem}
+.phase-hdr{font-size:13px;font-weight:700;color:#4519FF;text-transform:uppercase;letter-spacing:.07em;margin:0 0 10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.tip{background:#EBFFC4;border-radius:10px;padding:10px 14px;margin-bottom:10px;font-size:13px;color:#1a4a00;display:flex;gap:8px;align-items:flex-start}
+.tip i{font-size:16px;flex-shrink:0;margin-top:1px}
+.msg-card{background:#fff;border:1px solid #ddd;border-radius:14px;padding:1rem 1.25rem;margin-bottom:10px}
+.msg-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:8px;flex-wrap:wrap}
+.msg-num{width:26px;height:26px;border-radius:50%;background:#4519FF;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.msg-meta{flex:1;margin-left:10px;min-width:0}
+.msg-name{font-size:13px;font-weight:700;color:#1a1a2e}
+.msg-when{font-size:11px;color:#777}
+.bubble{background:#f0f4fb;border-radius:10px;padding:12px 14px}
+.bubble p{font-size:13px;color:#1a1a2e;line-height:1.7;margin:0;white-space:pre-wrap;word-break:break-word}
+.copy-btn{margin-top:10px;background:transparent;border:1px solid #ccc;border-radius:8px;padding:5px 14px;font-size:12px;color:#555;cursor:pointer;display:flex;align-items:center;gap:6px;width:fit-content;transition:background .15s}
+.copy-btn:hover{background:#f0f0f6}
+.divider{border:none;border-top:1px solid #e0e0e8;margin:12px 0}
+@media(max-width:600px){
+  .grid4{grid-template-columns:1fr 1fr}
+  .grid3{grid-template-columns:1fr 1fr}
+  .res-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<div class="seq-hdr">
+  <div>
+    <p class="seq-hdr-t">Secuencia WhatsApp — Lotes Portada Blanca</p>
+    <p class="seq-hdr-s" id="hdr-sub">Completa el simulador para personalizar todos los mensajes</p>
+  </div>
+  <span class="pill pill-purple">7 MENSAJES</span>
+</div>
+
+<div class="calc-box">
+  <p class="sec-title"><i class="ti ti-calculator" style="font-size:15px;vertical-align:-2px"></i> Datos de la cotización</p>
+  <div class="grid4">
+    <div class="fi"><label>Nombre del cliente</label><input type="text" id="f-cliente" placeholder="Ej: María García"></div>
+    <div class="fi">
+      <label>Asesor</label>
+      <select id="f-asesor">
+        <option value="">— Seleccionar —</option>
+        <option value="Mirko">Mirko</option>
+        <option value="María">María</option>
+        <option value="Kathia">Kathia</option>
+      </select>
+    </div>
+    <div class="fi">
+      <label>Proyecto</label>
+      <select id="f-proyecto">
+        <option value="">— Seleccionar —</option>
+        <option value="bdn">Brisas de Naylamp — Lambayeque</option>
+        <option value="pdm">Puerta del Mar — Pimentel</option>
+      </select>
+    </div>
+    <div class="fi"><label>Lote a cotizar</label><input type="text" id="f-lote" placeholder="Ej: Mz. B Lt. 12"></div>
+  </div>
+  <div class="divider"></div>
+  <div class="grid3">
+    <div class="fi"><label>Precio del lote (S/)</label><input type="number" id="f-precio" value="78000" step="1000"></div>
+    <div class="fi"><label>Inicial (%)</label><input type="number" id="f-ini" value="10" min="10" max="50"></div>
+    <div class="fi">
+      <label>Plazo (meses)</label>
+      <select id="f-plazo">
+        <option value="24">24</option><option value="36">36</option><option value="48">48</option>
+        <option value="60" selected>60</option><option value="72">72</option><option value="84">84</option><option value="96">96</option>
+      </select>
+    </div>
+  </div>
+  <div class="res-grid">
+    <div class="res-card"><div class="res-lbl">Inicial mínima</div><div class="res-val" id="r-ini">S/ 7,800</div></div>
+    <div class="res-card"><div class="res-lbl">Saldo a financiar</div><div class="res-val" id="r-saldo">S/ 70,200</div></div>
+    <div class="res-card"><div class="res-lbl">Cuota mensual aprox.</div><div class="res-val" id="r-cuota">S/ 1,960</div></div>
+  </div>
+</div>
+
+<!-- FASE 1 -->
+<div class="phase">
+  <p class="phase-hdr"><i class="ti ti-door-enter" style="font-size:15px"></i> Fase 1 — Apertura y confianza <span class="pill pill-green" style="text-transform:none;letter-spacing:0">Día 1</span></p>
+  <div class="tip"><i class="ti ti-bulb"></i> Objetivo: romper el hielo con credibilidad. Proyecto de interés, transparencia, seguridad jurídica y visita guiada sin compromiso.</div>
+  <div class="msg-card">
+    <div class="msg-hdr">
+      <div class="msg-num">1</div>
+      <div class="msg-meta"><div class="msg-name">Primer contacto</div><div class="msg-when">Día 1 — dentro de la primera hora de interés</div></div>
+      <span class="pill pill-green" style="text-transform:none">Apertura</span>
+    </div>
+    <div class="bubble"><p id="m1"></p></div>
+    <button class="copy-btn" onclick="copyMsg('m1')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+  </div>
+  <div class="msg-card">
+    <div class="msg-hdr">
+      <div class="msg-num">2</div>
+      <div class="msg-meta"><div class="msg-name">Envío de documentos de respaldo</div><div class="msg-when">Día 1 — tras la respuesta positiva</div></div>
+      <span class="pill pill-trust" style="text-transform:none">Confianza</span>
+    </div>
+    <div class="bubble"><p id="m2"></p></div>
+    <button class="copy-btn" onclick="copyMsg('m2')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+  </div>
+</div>
+
+<!-- FASE 2 -->
+<div class="phase">
+  <p class="phase-hdr"><i class="ti ti-cash" style="font-size:15px"></i> Fase 2 — Presentación financiera <span class="pill pill-blue" style="text-transform:none;letter-spacing:0">Día 2–3</span></p>
+  <div class="tip"><i class="ti ti-bulb"></i> Objetivo: eliminar la barrera del precio con números reales del lote cotizado y las ventajas del financiamiento directo.</div>
+  <div class="msg-card">
+    <div class="msg-hdr">
+      <div class="msg-num">3</div>
+      <div class="msg-meta"><div class="msg-name">Plan de pagos personalizado</div><div class="msg-when">Día 2 — con los datos del simulador</div></div>
+      <span class="pill pill-blue" style="text-transform:none">Financiero</span>
+    </div>
+    <div class="bubble"><p id="m3"></p></div>
+    <button class="copy-btn" onclick="copyMsg('m3')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+  </div>
+</div>
+
+<!-- FASE 3 -->
+<div class="phase">
+  <p class="phase-hdr"><i class="ti ti-map-pin" style="font-size:15px"></i> Fase 3 — Visita y decisores <span class="pill pill-green" style="text-transform:none;letter-spacing:0">Semana 1</span></p>
+  <div class="tip"><i class="ti ti-bulb"></i> Objetivo: coordinar visita guiada con todos los decisores. Movilidad disponible sin costo ni compromiso.</div>
+  <div class="msg-card">
+    <div class="msg-hdr">
+      <div class="msg-num">4</div>
+      <div class="msg-meta"><div class="msg-name">Invitación a visita guiada</div><div class="msg-when">Día 3–4</div></div>
+      <span class="pill pill-green" style="text-transform:none">Visita</span>
+    </div>
+    <div class="bubble"><p id="m4"></p></div>
+    <button class="copy-btn" onclick="copyMsg('m4')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+  </div>
+</div>
+
+<!-- FASE 4 -->
+<div class="phase">
+  <p class="phase-hdr"><i class="ti ti-clock" style="font-size:15px"></i> Fase 4 — Seguimiento y urgencia real <span class="pill pill-orange" style="text-transform:none;letter-spacing:0">Semana 2</span></p>
+  <div class="tip"><i class="ti ti-bulb"></i> Solo usar urgencia real. Nunca inventar presión falsa.</div>
+  <div class="msg-card">
+    <div class="msg-hdr">
+      <div class="msg-num">5</div>
+      <div class="msg-meta"><div class="msg-name">Seguimiento post-visita o silencio</div><div class="msg-when">2–3 días después del último contacto</div></div>
+      <span class="pill pill-red" style="text-transform:none">Reactivación</span>
+    </div>
+    <div class="bubble"><p id="m5"></p></div>
+    <button class="copy-btn" onclick="copyMsg('m5')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+  </div>
+  <div class="msg-card">
+    <div class="msg-hdr">
+      <div class="msg-num">6</div>
+      <div class="msg-meta"><div class="msg-name">Testimonial de cliente real</div><div class="msg-when">1–2 días después del mensaje 5</div></div>
+      <span class="pill pill-trust" style="text-transform:none">Prueba social</span>
+    </div>
+    <div class="bubble"><p id="m6"></p></div>
+    <button class="copy-btn" onclick="copyMsg('m6')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+  </div>
+</div>
+
+<!-- FASE 5 -->
+<div class="phase">
+  <p class="phase-hdr"><i class="ti ti-signature" style="font-size:15px"></i> Fase 5 — Cierre <span class="pill pill-orange" style="text-transform:none;letter-spacing:0">Semana 3</span></p>
+  <div class="msg-card">
+    <div class="msg-hdr">
+      <div class="msg-num">7</div>
+      <div class="msg-meta"><div class="msg-name">Propuesta de separación</div><div class="msg-when">Cuando el prospecto muestra interés real</div></div>
+      <span class="pill pill-orange" style="text-transform:none">Cierre</span>
+    </div>
+    <div class="bubble"><p id="m7"></p></div>
+    <button class="copy-btn" onclick="copyMsg('m7')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+  </div>
+</div>
+
+</div><!-- /wrap -->
+
+<script>
+function fmt(n){return Math.round(n).toLocaleString('es-PE');}
+function datos(){
+  var pEl=document.getElementById('f-proyecto');
+  var pVal=pEl.value;
+  var pNombre=pVal==='bdn'?'Brisas de Naylamp — Lambayeque':pVal==='pdm'?'Puerta del Mar — Pimentel':'[Proyecto]';
+  return {
+    cliente:document.getElementById('f-cliente').value.trim()||'[Nombre del cliente]',
+    asesor:document.getElementById('f-asesor').value||'[Asesor]',
+    proy:pVal,pn:pNombre,
+    lote:document.getElementById('f-lote').value.trim()||'[Lote]',
+    precio:parseFloat(document.getElementById('f-precio').value)||78000,
+    ini_pct:parseFloat(document.getElementById('f-ini').value)||10,
+    plazo:parseInt(document.getElementById('f-plazo').value)||60
+  };
+}
+function calcCuota(precio,ini_pct,plazo){
+  var ini=precio*(ini_pct/100),saldo=precio-ini;
+  var tma=Math.pow(1.22,1/12)-1;
+  var cuota=saldo*(tma*Math.pow(1+tma,plazo))/(Math.pow(1+tma,plazo)-1);
+  return {ini:ini,saldo:saldo,cuota:cuota};
+}
+function renderAll(){
+  var d=datos(),c=calcCuota(d.precio,d.ini_pct,d.plazo);
+  document.getElementById('r-ini').textContent='S/ '+fmt(c.ini);
+  document.getElementById('r-saldo').textContent='S/ '+fmt(c.saldo);
+  document.getElementById('r-cuota').textContent='S/ '+fmt(c.cuota);
+  document.getElementById('hdr-sub').textContent=d.pn+' · Financiamiento directo TEA 22%';
+
+  document.getElementById('m1').textContent=
+    'Hola '+d.cliente+' 👋, soy '+d.asesor+' de Portada Blanca Constructora & Inmobiliaria.\n\n'
+   +'Vi que te interesaste en nuestro proyecto '+d.pn+' — una excelente elección. 🏡\n\n'
+   +'En Portada Blanca trabajamos con transparencia, nuestros proyectos tienen todos los documentos en regla y además el financiamiento es 100% directo con nosotros, sin banco de por medio.\n\n'
+   +'Además, contamos con movilidad propia para llevarte a conocer el proyecto cuando gustes, sin ningún compromiso de tu parte. Solo ven, conoce y decide con tranquilidad. 😊\n\n'
+   +'¿Te gustaría que te cuente más sobre los lotes disponibles?';
+
+  var docs=d.proy==='bdn'
+    ?'✅ Partida Registral en Sunarp\n✅ Certificado de Zonificación y Vías\n✅ Plano de agua y desagüe aprobado'
+    :d.proy==='pdm'
+    ?'✅ Partida Registral en Sunarp\n✅ Habilitación Urbana aprobada\n✅ Certificado de Zonificación y Vías\n✅ Plano de lotización y áreas comunes'
+    :'✅ Partida Registral en Sunarp\n✅ Habilitación Urbana aprobada\n✅ Certificado de Zonificación y Vías';
+  document.getElementById('m2').textContent=
+    d.cliente+', para que tengas toda la tranquilidad antes de tomar cualquier decisión, te comparto los documentos que respaldan nuestro proyecto '+d.pn+' 👇\n\n'
+   +docs+'\n\n'
+   +'Todo está en orden y a tu disposición para revisarlo con quien tú consideres de confianza. En Portada Blanca no vendemos promesas — vendemos terrenos con todo en regla. 🔐';
+
+  document.getElementById('m3').textContent=
+    d.cliente+', ¿sabías que puedes tener tu lote con una inicial desde el 10%? 🏡\n\n'
+   +'Te armo una simulación con los números reales de tu cotización:\n\n'
+   +'📍 Proyecto: '+d.pn+'\n'
+   +'📌 Lote: '+d.lote+'\n'
+   +'💰 Precio: S/ '+fmt(d.precio)+'\n'
+   +'✅ Inicial mínima ('+d.ini_pct+'%): S/ '+fmt(c.ini)+'\n'
+   +'📆 Cuota mensual: desde S/ '+fmt(c.cuota)+' / mes\n'
+   +'⏳ Plazo: '+d.plazo+' meses\n\n'
+   +'Y lo mejor: el financiamiento es 100% directo con nosotros. Sin banco, sin gestión de crédito, sin rechazos. Tú tratas directamente con Portada Blanca. 👌\n\n'
+   +'¿Te gustaría ver el detalle completo o comparar con otro lote disponible?';
+
+  document.getElementById('m4').textContent=
+    d.cliente+', te invito a conocer '+d.pn+' en persona. 🚗\n\n'
+   +'Cuando ves el terreno con tus propios ojos — la ubicación, los accesos, el avance de obra — las dudas desaparecen solas.\n\n'
+   +'Si vas con tu pareja o alguien de confianza, mucho mejor. Estas decisiones se toman mejor en familia. 👨‍👩‍👧\n\n'
+   +'Y no te preocupes por el traslado: contamos con movilidad propia para recogerte y llevarte al proyecto sin ningún costo ni compromiso de tu parte.\n\n'
+   +'¿Qué día te viene bien esta semana o la próxima? Yo te acompaño personalmente y te explico todo sin apuro. 😊';
+
+  document.getElementById('m5').textContent=
+    'Hola '+d.cliente+', ¿cómo estás? 😊\n\n'
+   +'Solo quería avisarte que el lote '+d.lote+' en '+d.pn+' sigue disponible, pero estamos en la última etapa de preventa con este precio.\n\n'
+   +'Una vez que se cierren los lotes disponibles en esta etapa, los precios suben para la siguiente. Muchos clientes se arrepienten de haber esperado más de la cuenta.\n\n'
+   +'¿Hay algo en lo que pueda ayudarte a decidir? Puedo resolver cualquier duda que tengas tú o tu familia. 🙏';
+
+  document.getElementById('m6').textContent=
+    d.cliente+', te quiero compartir algo que nos dijeron unos clientes nuestros hace poco 👇\n\n'
+   +'[Adjuntar screenshot o audio de testimonio real]\n\n'
+   +'Ellos también dudaron al principio, sobre todo por el precio — pero en ese momento todavía no conocían nuestro proyecto ni la formalidad de la empresa. Como muchos, habían visitado proyectos poco seguros y eso les generaba desconfianza.\n\n'
+   +'Hoy nos cuentan que tienen la tranquilidad de saber que su inversión está a salvo y creciendo mes a mes. Esa paz mental no tiene precio. 🙌\n\n'
+   +'La diferencia entre un lote formal como el nuestro y uno informal no es solo el precio — es saber que lo que compraste realmente es tuyo. 🔐';
+
+  document.getElementById('m7').textContent=
+    d.cliente+', si quieres asegurar el lote '+d.lote+' en '+d.pn+' antes de que alguien más lo tome, podemos hacer la separación hoy mismo. 📝\n\n'
+   +'Con una separación de S/ 1,500 el lote queda reservado a tu nombre mientras coordinamos el pago de la inicial y firmamos el contrato.\n\n'
+   +'El proceso es muy sencillo:\n'
+   +'1️⃣ Realizas la separación de S/ 1,500\n'
+   +'2️⃣ Coordinas el pago de tu inicial (mínimo S/ '+fmt(c.ini)+')\n'
+   +'3️⃣ Firmamos contrato y el lote es tuyo\n\n'
+   +'Puedes realizar el depósito de separación en cualquiera de estas cuentas:\n\n'
+   +'🏦 BBVA\n'
+   +'   Cuenta Soles: 0011-0285-01-00197309\n'
+   +'   CCI: 011-285-000100197309-46\n\n'
+   +'🏦 BCP\n'
+   +'   Cuenta Soles: 305-2055529-0-25\n'
+   +'   CCI: 002-305-002055529025-11\n\n'
+   +'A nombre de: Portada Blanca Constructora & Inmobiliaria\n'
+   +'RUC: 20611225645\n\n'
+   +'Una vez realizado el depósito, envíame el comprobante y yo gestiono todo lo demás. ¿Lo hacemos hoy? 💪';
+}
+function copyMsg(id){
+  var el=document.getElementById(id);
+  if(!el)return;
+  navigator.clipboard.writeText(el.textContent).then(function(){
+    document.querySelectorAll('.copy-btn').forEach(function(b){
+      if(b.getAttribute('onclick').includes("'"+id+"'")){b.innerHTML='<i class="ti ti-check"></i> ¡Copiado!';}
+    });
+    setTimeout(function(){
+      document.querySelectorAll('.copy-btn').forEach(function(b){
+        if(b.getAttribute('onclick').includes("'"+id+"'")){b.innerHTML='<i class="ti ti-copy"></i> Copiar mensaje';}
+      });
+    },2000);
+  });
+}
+['f-cliente','f-lote','f-precio','f-ini'].forEach(function(id){document.getElementById(id).addEventListener('input',renderAll);});
+['f-asesor','f-proyecto','f-plazo'].forEach(function(id){document.getElementById(id).addEventListener('change',renderAll);});
+renderAll();
+</script>
+</body>
+</html>
