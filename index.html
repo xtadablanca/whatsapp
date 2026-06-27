@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Secuencia WhatsApp — Portada Blanca</title>
+<title>Mensajes WhatsApp — Portada Blanca</title>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.44.0/tabler-icons.min.css">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:'Arial',sans-serif;background:#f4f4f8;color:#1a1a2e;padding:2rem 1rem}
-.wrap{max-width:780px;margin:0 auto}
-.seq-hdr{background:#22285D;border-radius:16px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:12px}
+body{font-family:'Arial',sans-serif;background:#f4f4f8;color:#1a1a2e;padding:1.5rem 1rem 3rem}
+.wrap{max-width:840px;margin:0 auto}
+.seq-hdr{background:#22285D;border-radius:16px;padding:1.25rem 1.5rem;margin-bottom:1.5rem;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
 .seq-hdr-t{color:#fff;font-size:18px;font-weight:700;margin:0}
 .seq-hdr-s{color:#EBFFC4;font-size:12px;margin-top:3px}
 .pill{font-size:11px;font-weight:700;padding:4px 12px;border-radius:20px;white-space:nowrap;display:inline-block}
@@ -19,36 +19,72 @@ body{font-family:'Arial',sans-serif;background:#f4f4f8;color:#1a1a2e;padding:2re
 .pill-orange{background:#fff0e0;color:#7a3500}
 .pill-red{background:#fce8e8;color:#7a0000}
 .pill-trust{background:#eae6ff;color:#22285D}
-.calc-box{background:#eeeef4;border-radius:14px;padding:1.25rem;margin-bottom:1.5rem}
-.sec-title{font-size:13px;font-weight:700;color:#4519FF;text-transform:uppercase;letter-spacing:.07em;margin:0 0 12px;display:flex;align-items:center;gap:8px}
+.pill-teal{background:#e0f5f0;color:#0a5a44}
+.pill-gray{background:#ebebeb;color:#444}
+.pill-gold{background:#fff8e0;color:#7a5a00}
+.aida-bar{display:flex;gap:6px;margin-bottom:8px;flex-wrap:wrap}
+.aida-tag{font-size:10px;font-weight:700;padding:3px 10px;border-radius:20px;letter-spacing:.05em}
+.aida-A{background:#fce8e8;color:#7a0000}
+.aida-I{background:#e6f0ff;color:#0a3080}
+.aida-D{background:#fff0e0;color:#7a3500}
+.aida-Ac{background:#EBFFC4;color:#1a4a00}
+.calc-box{background:#eeeef4;border-radius:14px;padding:1.25rem;margin-bottom:1rem}
+.sec-title{font-size:13px;font-weight:700;color:#4519FF;text-transform:uppercase;letter-spacing:.07em;margin:0 0 12px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
 .grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-bottom:10px}
 .grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin-bottom:10px}
 .fi{display:flex;flex-direction:column;gap:4px}
-.fi label{font-size:12px;color:#555}
-.fi input,.fi select{font-size:13px;padding:7px 10px;border:1px solid #ccc;border-radius:8px;background:#fff;color:#1a1a2e;outline:none}
+.fi label{font-size:12px;color:#555;font-weight:600}
+.fi label .req{color:#e24b4a}
+.fi input,.fi select{font-size:13px;padding:7px 10px;border:1.5px solid #ccc;border-radius:8px;background:#fff;color:#1a1a2e;outline:none;transition:border .15s}
 .fi input:focus,.fi select:focus{border-color:#4519FF}
+.fi input.invalid,.fi select.invalid{border-color:#e24b4a;background:#fff5f5}
+.err-msg{font-size:11px;color:#e24b4a;margin-top:2px;display:none}
+.fi.has-error .err-msg{display:block}
 .res-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:10px}
 .res-card{background:#fff;border:1px solid #ddd;border-radius:10px;padding:10px 12px;text-align:center}
 .res-lbl{font-size:11px;color:#777;margin-bottom:4px}
 .res-val{font-size:17px;font-weight:700;color:#4519FF}
-.phase{margin-bottom:1.5rem}
-.phase-hdr{font-size:13px;font-weight:700;color:#4519FF;text-transform:uppercase;letter-spacing:.07em;margin:0 0 10px;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.tip{background:#EBFFC4;border-radius:10px;padding:10px 14px;margin-bottom:10px;font-size:13px;color:#1a4a00;display:flex;gap:8px;align-items:flex-start}
-.tip i{font-size:16px;flex-shrink:0;margin-top:1px}
-.msg-card{background:#fff;border:1px solid #ddd;border-radius:14px;padding:1rem 1.25rem;margin-bottom:10px}
-.msg-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px;gap:8px;flex-wrap:wrap}
-.msg-num{width:26px;height:26px;border-radius:50%;background:#4519FF;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.frac-box{background:#fff;border:1.5px solid #EBFFC4;border-radius:12px;padding:12px 14px;margin-top:10px;display:none}
+.frac-title{font-size:12px;font-weight:700;color:#1a4a00;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.frac-grid{display:grid;gap:8px}
+.frac-row{display:flex;justify-content:space-between;align-items:center;font-size:13px;padding:6px 10px;background:#f8fff4;border-radius:8px}
+.frac-label{color:#555;font-weight:600}
+.frac-val{color:#22285D;font-weight:700}
+/* TABS */
+.tabs-wrap{background:#fff;border:1px solid #ddd;border-radius:14px;margin-bottom:1rem;overflow:hidden}
+.tabs-header{display:flex;overflow-x:auto;border-bottom:1.5px solid #e0e0e8;background:#f8f8fc;scrollbar-width:thin}
+.tab-btn{flex-shrink:0;padding:9px 14px;font-size:11.5px;font-weight:700;color:#777;background:transparent;border:none;cursor:pointer;border-bottom:3px solid transparent;transition:all .15s;white-space:nowrap}
+.tab-btn:hover{color:#4519FF;background:#f0f0ff}
+.tab-btn.active{color:#4519FF;border-bottom:3px solid #4519FF;background:#fff}
+.tabs-body{padding:1.25rem}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+/* Sub-tabs (para Duda) */
+.sub-tabs-header{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.sub-tab-btn{padding:6px 14px;font-size:12px;font-weight:700;color:#555;background:#f0f0f6;border:1.5px solid #ddd;border-radius:20px;cursor:pointer;transition:all .15s}
+.sub-tab-btn:hover{background:#eae6ff;color:#4519FF;border-color:#4519FF}
+.sub-tab-btn.active{background:#4519FF;color:#fff;border-color:#4519FF}
+.sub-panel{display:none}
+.sub-panel.active{display:block}
+/* MSG */
+.msg-card{background:#f8f8fc;border:1px solid #e8e8f0;border-radius:12px;padding:1rem 1.25rem;margin-bottom:12px}
+.msg-hdr{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:8px;gap:8px;flex-wrap:wrap}
+.msg-num{width:26px;height:26px;border-radius:50%;background:#4519FF;color:#fff;font-size:12px;font-weight:700;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px}
 .msg-meta{flex:1;margin-left:10px;min-width:0}
 .msg-name{font-size:13px;font-weight:700;color:#1a1a2e}
-.msg-when{font-size:11px;color:#777}
-.bubble{background:#f0f4fb;border-radius:10px;padding:12px 14px}
-.bubble p{font-size:13px;color:#1a1a2e;line-height:1.7;margin:0;white-space:pre-wrap;word-break:break-word}
+.msg-when{font-size:11px;color:#777;margin-top:2px}
+.bubble{background:#fff;border:1px solid #e0e0ea;border-radius:10px;padding:12px 14px}
+.bubble p{font-size:13px;color:#1a1a2e;line-height:1.75;margin:0;white-space:pre-wrap;word-break:break-word}
 .copy-btn{margin-top:10px;background:transparent;border:1px solid #ccc;border-radius:8px;padding:5px 14px;font-size:12px;color:#555;cursor:pointer;display:flex;align-items:center;gap:6px;width:fit-content;transition:background .15s}
 .copy-btn:hover{background:#f0f0f6}
 .divider{border:none;border-top:1px solid #e0e0e8;margin:12px 0}
+.tip{background:#EBFFC4;border-radius:10px;padding:10px 14px;margin-bottom:12px;font-size:12px;color:#1a4a00;display:flex;gap:8px;align-items:flex-start;line-height:1.5}
+.tip i{font-size:15px;flex-shrink:0;margin-top:1px}
+.validate-btn{display:block;width:100%;padding:10px;background:#4519FF;color:#fff;border:none;border-radius:10px;font-size:14px;font-weight:700;cursor:pointer;margin-top:12px;transition:background .15s}
+.validate-btn:hover{background:#3310cc}
+.gen-ok{background:#EBFFC4;color:#1a4a00;border-radius:10px;padding:10px 14px;font-size:13px;font-weight:600;text-align:center;margin-top:10px;display:none}
 @media(max-width:600px){
-  .grid4{grid-template-columns:1fr 1fr}
-  .grid3{grid-template-columns:1fr 1fr}
+  .grid4,.grid3{grid-template-columns:1fr 1fr}
   .res-grid{grid-template-columns:1fr}
 }
 </style>
@@ -58,247 +94,575 @@ body{font-family:'Arial',sans-serif;background:#f4f4f8;color:#1a1a2e;padding:2re
 
 <div class="seq-hdr">
   <div>
-    <p class="seq-hdr-t">Secuencia WhatsApp — Lotes Portada Blanca</p>
-    <p class="seq-hdr-s" id="hdr-sub">Completa el simulador para personalizar todos los mensajes</p>
+    <p class="seq-hdr-t">Mensajes WhatsApp — Lotes Portada Blanca</p>
+    <p class="seq-hdr-s" id="hdr-sub">Completa los datos para personalizar todos los mensajes</p>
   </div>
-  <span class="pill pill-purple">7 MENSAJES</span>
+  <span class="pill pill-purple">20 MENSAJES</span>
 </div>
 
+<!-- SIMULADOR -->
 <div class="calc-box">
-  <p class="sec-title"><i class="ti ti-calculator" style="font-size:15px;vertical-align:-2px"></i> Datos de la cotización</p>
+  <p class="sec-title"><i class="ti ti-calculator" style="font-size:15px;vertical-align:-2px"></i> Datos de la cotización <span style="font-size:11px;color:#e24b4a;font-weight:400;text-transform:none;letter-spacing:0">* Todos los campos son obligatorios</span></p>
   <div class="grid4">
-    <div class="fi"><label>Nombre del cliente</label><input type="text" id="f-cliente" placeholder="Ej: María García"></div>
-    <div class="fi">
-      <label>Asesor</label>
-      <select id="f-asesor">
-        <option value="">— Seleccionar —</option>
-        <option value="Mirko">Mirko</option>
-        <option value="María">María</option>
-        <option value="Kathia">Kathia</option>
-      </select>
-    </div>
-    <div class="fi">
-      <label>Proyecto</label>
-      <select id="f-proyecto">
-        <option value="">— Seleccionar —</option>
-        <option value="bdn">Brisas de Naylamp — Lambayeque</option>
-        <option value="pdm">Puerta del Mar — Pimentel</option>
-      </select>
-    </div>
-    <div class="fi"><label>Lote a cotizar</label><input type="text" id="f-lote" placeholder="Ej: Mz. B Lt. 12"></div>
+    <div class="fi" id="fi-cliente"><label>Nombre del cliente <span class="req">*</span></label><input type="text" id="f-cliente" placeholder="Ej: María García"><span class="err-msg">Campo obligatorio</span></div>
+    <div class="fi" id="fi-asesor"><label>Asesor <span class="req">*</span></label>
+      <select id="f-asesor"><option value="">— Seleccionar —</option><option value="Mirko">Mirko</option><option value="María">María</option><option value="Kathia">Kathia</option></select>
+      <span class="err-msg">Selecciona un asesor</span></div>
+    <div class="fi" id="fi-proyecto"><label>Proyecto <span class="req">*</span></label>
+      <select id="f-proyecto"><option value="">— Seleccionar —</option><option value="bdn">Brisas de Naylamp — Lambayeque</option><option value="pdm">Puerta del Mar — Pimentel</option></select>
+      <span class="err-msg">Selecciona un proyecto</span></div>
+    <div class="fi" id="fi-lote"><label>Lote a cotizar <span class="req">*</span></label><input type="text" id="f-lote" placeholder="Ej: Mz. B Lt. 12"><span class="err-msg">Campo obligatorio</span></div>
   </div>
   <div class="divider"></div>
   <div class="grid3">
-    <div class="fi"><label>Precio del lote (S/)</label><input type="number" id="f-precio" value="78000" step="1000"></div>
-    <div class="fi"><label>Inicial (%)</label><input type="number" id="f-ini" value="10" min="10" max="50"></div>
-    <div class="fi">
-      <label>Plazo (meses)</label>
-      <select id="f-plazo">
-        <option value="24">24</option><option value="36">36</option><option value="48">48</option>
-        <option value="60" selected>60</option><option value="72">72</option><option value="84">84</option><option value="96">96</option>
-      </select>
-    </div>
+    <div class="fi" id="fi-precio"><label>Precio del lote (S/) <span class="req">*</span></label><input type="number" id="f-precio" value="" placeholder="0" min="1" step="1000"><span class="err-msg">Ingresa un precio válido</span></div>
+    <div class="fi" id="fi-ini"><label>Inicial (%) <span class="req">*</span></label><input type="number" id="f-ini" value="" placeholder="Mín 10%" min="10" max="100"><span class="err-msg">Mínimo 10%</span></div>
+    <div class="fi" id="fi-plazo"><label>Plazo (meses) <span class="req">*</span></label>
+      <select id="f-plazo"><option value="">— Seleccionar —</option><option value="12">12</option><option value="24">24</option><option value="36">36</option><option value="48">48</option><option value="60">60</option><option value="72">72</option><option value="84">84</option><option value="96">96</option><option value="108">108</option><option value="120">120</option></select>
+      <span class="err-msg">Selecciona el plazo</span></div>
   </div>
-  <div class="res-grid">
-    <div class="res-card"><div class="res-lbl">Inicial mínima</div><div class="res-val" id="r-ini">S/ 7,800</div></div>
-    <div class="res-card"><div class="res-lbl">Saldo a financiar</div><div class="res-val" id="r-saldo">S/ 70,200</div></div>
-    <div class="res-card"><div class="res-lbl">Cuota mensual aprox.</div><div class="res-val" id="r-cuota">S/ 1,960</div></div>
+  <button class="validate-btn" onclick="validateAndRender()"><i class="ti ti-refresh" style="vertical-align:-2px"></i> Generar mensajes personalizados</button>
+  <div class="gen-ok" id="gen-ok">✅ ¡Mensajes generados! Revisa cada pestaña abajo.</div>
+  <div id="res-section" style="display:none">
+    <div class="res-grid">
+      <div class="res-card"><div class="res-lbl">Inicial mínima</div><div class="res-val" id="r-ini">—</div></div>
+      <div class="res-card"><div class="res-lbl">Saldo a financiar</div><div class="res-val" id="r-saldo">—</div></div>
+      <div class="res-card"><div class="res-lbl">Cuota mensual aprox.</div><div class="res-val" id="r-cuota">—</div></div>
+    </div>
+    <div class="frac-box" id="frac-box">
+      <div class="frac-title"><i class="ti ti-calendar-stats"></i> Opciones de fraccionamiento de inicial</div>
+      <div class="frac-grid" id="frac-grid"></div>
+    </div>
   </div>
 </div>
 
-<!-- FASE 1 -->
-<div class="phase">
-  <p class="phase-hdr"><i class="ti ti-door-enter" style="font-size:15px"></i> Fase 1 — Apertura y confianza <span class="pill pill-green" style="text-transform:none;letter-spacing:0">Día 1</span></p>
-  <div class="tip"><i class="ti ti-bulb"></i> Objetivo: romper el hielo con credibilidad. Proyecto de interés, transparencia, seguridad jurídica y visita guiada sin compromiso.</div>
-  <div class="msg-card">
-    <div class="msg-hdr">
-      <div class="msg-num">1</div>
-      <div class="msg-meta"><div class="msg-name">Primer contacto</div><div class="msg-when">Día 1 — dentro de la primera hora de interés</div></div>
-      <span class="pill pill-green" style="text-transform:none">Apertura</span>
-    </div>
-    <div class="bubble"><p id="m1"></p></div>
-    <button class="copy-btn" onclick="copyMsg('m1')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+<!-- TABS PRINCIPALES -->
+<div class="tabs-wrap" id="tabs-wrap" style="display:none">
+  <div class="tabs-header">
+    <button class="tab-btn active" onclick="showTab('t1',this)">1. Primer contacto</button>
+    <button class="tab-btn" onclick="showTab('t2',this)">2. Docs y confianza</button>
+    <button class="tab-btn" onclick="showTab('t3',this)">3. Simulación</button>
+    <button class="tab-btn" onclick="showTab('t4',this)">4. Invit. visita</button>
+    <button class="tab-btn" onclick="showTab('t5',this)">5. Conf. cita</button>
+    <button class="tab-btn" onclick="showTab('t6',this)">6. Post-visita</button>
+    <button class="tab-btn" onclick="showTab('t7',this)">7. Post-videollamada</button>
+    <button class="tab-btn" onclick="showTab('t8',this)">8. En duda 💬</button>
+    <button class="tab-btn" onclick="showTab('t9',this)">9. Reactivación</button>
+    <button class="tab-btn" onclick="showTab('t10',this)">10. Prueba social</button>
+    <button class="tab-btn" onclick="showTab('t11',this)">11. Pend. depósito</button>
+    <button class="tab-btn" onclick="showTab('t12',this)">12. Cierre urgencia</button>
+    <button class="tab-btn" onclick="showTab('t14',this)">13. Separación</button>
+    <button class="tab-btn" onclick="showTab('t15',this)">14. Post-depósito 🎉</button>
+    <button class="tab-btn" onclick="showTab('t16',this)">15. Bienvenida</button>
+    <button class="tab-btn" onclick="showTab('t17',this)">16. Ficha de proyecto 🏗️</button>
   </div>
-  <div class="msg-card">
-    <div class="msg-hdr">
-      <div class="msg-num">2</div>
-      <div class="msg-meta"><div class="msg-name">Envío de documentos de respaldo</div><div class="msg-when">Día 1 — tras la respuesta positiva</div></div>
-      <span class="pill pill-trust" style="text-transform:none">Confianza</span>
+  <div class="tabs-body">
+
+    <!-- T1 -->
+    <div class="tab-panel active" id="t1">
+      <div class="tip"><i class="ti ti-bulb"></i><b>ATENCIÓN + INTERÉS</b> — Primer contacto dentro de la primera hora. Gancho personalizado con proyecto, transparencia y visita sin compromiso.</div>
+      <div class="aida-bar"><span class="aida-tag aida-A">ATENCIÓN</span><span class="aida-tag aida-I">INTERÉS</span></div>
+      <div class="msg-card">
+        <div class="msg-hdr"><div class="msg-num">1</div><div class="msg-meta"><div class="msg-name">Primer contacto</div><div class="msg-when">Día 1 — dentro de la primera hora de que muestre interés</div></div><span class="pill pill-green">Apertura</span></div>
+        <div class="bubble"><p id="m1"></p></div>
+        <button class="copy-btn" onclick="copyMsg('m1')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+      </div>
     </div>
-    <div class="bubble"><p id="m2"></p></div>
-    <button class="copy-btn" onclick="copyMsg('m2')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+
+    <!-- T2 -->
+    <div class="tab-panel" id="t2">
+      <div class="tip"><i class="ti ti-bulb"></i><b>INTERÉS</b> — Documentos reales según el proyecto. Genera confianza sin que el asesor deba recordar borrar textos de muestra.</div>
+      <div class="aida-bar"><span class="aida-tag aida-I">INTERÉS</span></div>
+      <div class="msg-card">
+        <div class="msg-hdr"><div class="msg-num">2</div><div class="msg-meta"><div class="msg-name">Documentos de respaldo</div><div class="msg-when">Día 1 — tras respuesta positiva</div></div><span class="pill pill-trust">Confianza</span></div>
+        <div class="bubble"><p id="m2"></p></div>
+        <button class="copy-btn" onclick="copyMsg('m2')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+      </div>
+    </div>
+
+    <!-- T3 -->
+    <div class="tab-panel" id="t3">
+      <div class="tip"><i class="ti ti-bulb"></i><b>INTERÉS + DESEO</b> — Simulación con números reales. Transforma el deseo abstracto en algo concreto y alcanzable.</div>
+      <div class="aida-bar"><span class="aida-tag aida-I">INTERÉS</span><span class="aida-tag aida-D">DESEO</span></div>
+      <div class="msg-card">
+        <div class="msg-hdr"><div class="msg-num">3</div><div class="msg-meta"><div class="msg-name">Simulación financiera personalizada</div><div class="msg-when">Día 2 — después de mostrar interés inicial</div></div><span class="pill pill-blue">Financiero</span></div>
+        <div class="bubble"><p id="m3"></p></div>
+        <button class="copy-btn" onclick="copyMsg('m3')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+      </div>
+    </div>
+
+    <!-- T4 -->
+    <div class="tab-panel" id="t4">
+      <div class="tip"><i class="ti ti-bulb"></i><b>DESEO + ACCIÓN</b> — El terreno vende solo cuando el prospecto lo ve. Incluye movilidad propia sin costo.</div>
+      <div class="aida-bar"><span class="aida-tag aida-D">DESEO</span><span class="aida-tag aida-Ac">ACCIÓN</span></div>
+      <div class="msg-card">
+        <div class="msg-hdr"><div class="msg-num">4</div><div class="msg-meta"><div class="msg-name">Invitación a visita guiada</div><div class="msg-when">Día 3–4</div></div><span class="pill pill-green">Visita</span></div>
+        <div class="bubble"><p id="m4"></p></div>
+        <button class="copy-btn" onclick="copyMsg('m4')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+      </div>
+    </div>
+
+    <!-- T5 -->
+    <div class="tab-panel" id="t5">
+      <div class="tip"><i class="ti ti-bulb"></i><b>ACCIÓN</b> — Prospecto con cita agendada. Confirmar el día anterior reduce cancelaciones. El recordatorio el mismo día mantiene el compromiso.</div>
+      <div class="aida-bar"><span class="aida-tag aida-Ac">ACCIÓN</span></div>
+      <div class="msg-card">
+        <div class="msg-hdr"><div class="msg-num">5A</div><div class="msg-meta"><div class="msg-name">Confirmación de cita (día anterior)</div><div class="msg-when">24 horas antes de la visita agendada</div></div><span class="pill pill-teal">Pre-visita</span></div>
+        <div class="bubble"><p id="m5a"></p></div>
+        <button class="copy-btn" onclick="copyMsg('m5a')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+      </div>
+      <div class="msg-card">
+        <div class="msg-hdr"><div class="msg-num">5B</div><div class="msg-meta"><div class="msg-name">Recordatorio día de visita</div><div class="msg-when">Mañana del día de la visita (2–3 horas antes)</div></div><span class="pill pill-teal">Pre-visita</span></div>
+        <div class="bubble"><p id="m5b"></p></div>
+        <button class="copy-btn" onclick="copyMsg('m5b')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+      </div>
+    </div>
+
+    <!-- T6 -->
+    <div class="tab-panel" id="t6">
+      <div class="tip"><i class="ti ti-bulb"></i><b>DESEO + ACCIÓN</b> — Prospecto que ya visitó. Momento de mayor temperatura — actuar en las próximas 24 horas.</div>
+      <div class="aida-bar"><span class="aida-tag aida-D">DESEO</span><span class="aida-tag aida-Ac">ACCIÓN</span></div>
+      <div class="msg-card">
+        <div class="msg-hdr"><div class="msg-num">6</div><div class="msg-meta"><div class="msg-name">Seguimiento post-visita</div><div class="msg-when">Máximo 24 horas después de la visita</div></div><span class="pill pill-orange">Post-visita</span></div>
+        <div class="bubble"><p id="m6"></p></div>
+        <button class="copy-btn" onclick="copyMsg('m6')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+      </div>
+    </div>
+
+    <!-- T7 -->
+    <div class="tab-panel" id="t7">
+      <div class="tip"><i class="ti ti-bulb"></i><b>DESEO + ACCIÓN</b> — Post-videollamada. Reforzar lo visto, resolver dudas y proponer el siguiente paso presencial.</div>
+      <div class="aida-bar"><span class="aida-tag aida-D">DESEO</span><span class="aida-tag aida-Ac">ACCIÓN</span></div>
+      <div class="msg-card">
+        <div class="msg-hdr"><div class="msg-num">7</div><div class="msg-meta"><div class="msg-name">Seguimiento post-videollamada</div><div class="msg-when">Horas después de la videollamada</div></div><span class="pill pill-blue">Post-videollamada</span></div>
+        <div class="bubble"><p id="m7"></p></div>
+        <button class="copy-btn" onclick="copyMsg('m7')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+      </div>
+    </div>
+
+    <!-- T8 — EN DUDA con sub-tabs -->
+    <div class="tab-panel" id="t8">
+      <div class="tip"><i class="ti ti-bulb"></i><b>DESEO</b> — Selecciona el tipo de duda del prospecto para usar la respuesta más adecuada.</div>
+      <div class="sub-tabs-header">
+        <button class="sub-tab-btn active" onclick="showSub('sd1',this)">💰 Precio</button>
+        <button class="sub-tab-btn" onclick="showSub('sd2',this)">📆 Cuota</button>
+        <button class="sub-tab-btn" onclick="showSub('sd3',this)">📍 Ubicación</button>
+        <button class="sub-tab-btn" onclick="showSub('sd4',this)">📄 Documentos</button>
+        <button class="sub-tab-btn" onclick="showSub('sd5',this)">🤔 Necesita consultarlo</button>
+        <button class="sub-tab-btn" onclick="showSub('sd6',this)">⏳ No es el momento</button>
+        <button class="sub-tab-btn" onclick="showSub('sd7',this)">🏦 Financiamiento</button>
+        <button class="sub-tab-btn" onclick="showSub('sd8',this)">💸 Objeción precio</button>
+      </div>
+      <div class="sub-panel active" id="sd1">
+        <div class="aida-bar"><span class="aida-tag aida-I">INTERÉS</span><span class="aida-tag aida-D">DESEO</span></div>
+        <div class="msg-card">
+          <div class="msg-hdr"><div class="msg-num">8A</div><div class="msg-meta"><div class="msg-name">Duda: el precio le parece alto</div><div class="msg-when">Cuando dice "está muy caro" o compara con otras opciones</div></div><span class="pill pill-gray">Duda · Precio</span></div>
+          <div class="bubble"><p id="m8a"></p></div>
+          <button class="copy-btn" onclick="copyMsg('m8a')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+        </div>
+      </div>
+      <div class="sub-panel" id="sd2">
+        <div class="aida-bar"><span class="aida-tag aida-I">INTERÉS</span><span class="aida-tag aida-D">DESEO</span></div>
+        <div class="msg-card">
+          <div class="msg-hdr"><div class="msg-num">8B</div><div class="msg-meta"><div class="msg-name">Duda: la cuota mensual le preocupa</div><div class="msg-when">Cuando dice "no sé si puedo pagar la cuota"</div></div><span class="pill pill-gray">Duda · Cuota</span></div>
+          <div class="bubble"><p id="m8b"></p></div>
+          <button class="copy-btn" onclick="copyMsg('m8b')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+        </div>
+      </div>
+      <div class="sub-panel" id="sd3">
+        <div class="aida-bar"><span class="aida-tag aida-I">INTERÉS</span><span class="aida-tag aida-D">DESEO</span></div>
+        <div class="msg-card">
+          <div class="msg-hdr"><div class="msg-num">8C</div><div class="msg-meta"><div class="msg-name">Duda: le preocupa la ubicación</div><div class="msg-when">Cuando dice "no conozco bien la zona" o "está lejos"</div></div><span class="pill pill-gray">Duda · Ubicación</span></div>
+          <div class="bubble"><p id="m8c"></p></div>
+          <button class="copy-btn" onclick="copyMsg('m8c')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+        </div>
+      </div>
+      <div class="sub-panel" id="sd4">
+        <div class="aida-bar"><span class="aida-tag aida-I">INTERÉS</span><span class="aida-tag aida-D">DESEO</span></div>
+        <div class="msg-card">
+          <div class="msg-hdr"><div class="msg-num">8D</div><div class="msg-meta"><div class="msg-name">Duda: no está seguro de los documentos</div><div class="msg-when">Cuando dice "¿cómo sé que es legal?" o "tuve malas experiencias antes"</div></div><span class="pill pill-gray">Duda · Documentos</span></div>
+          <div class="bubble"><p id="m8d"></p></div>
+          <button class="copy-btn" onclick="copyMsg('m8d')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+        </div>
+      </div>
+      <div class="sub-panel" id="sd5">
+        <div class="aida-bar"><span class="aida-tag aida-D">DESEO</span><span class="aida-tag aida-Ac">ACCIÓN</span></div>
+        <div class="msg-card">
+          <div class="msg-hdr"><div class="msg-num">8E</div><div class="msg-meta"><div class="msg-name">Duda: necesita consultarlo con su familia</div><div class="msg-when">Cuando dice "tengo que hablarlo con mi esposa/esposo"</div></div><span class="pill pill-gray">Duda · Familia</span></div>
+          <div class="bubble"><p id="m8e"></p></div>
+          <button class="copy-btn" onclick="copyMsg('m8e')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+        </div>
+      </div>
+      <div class="sub-panel" id="sd6">
+        <div class="aida-bar"><span class="aida-tag aida-A">ATENCIÓN</span><span class="aida-tag aida-D">DESEO</span></div>
+        <div class="msg-card">
+          <div class="msg-hdr"><div class="msg-num">8F</div><div class="msg-meta"><div class="msg-name">Duda: dice que no es el momento</div><div class="msg-when">Cuando dice "ahorita no, quizás más adelante"</div></div><span class="pill pill-gray">Duda · Timing</span></div>
+          <div class="bubble"><p id="m8f"></p></div>
+          <button class="copy-btn" onclick="copyMsg('m8f')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+        </div>
+      </div>
+      <div class="sub-panel" id="sd7">
+        <div class="aida-bar"><span class="aida-tag aida-I">INTERÉS</span><span class="aida-tag aida-D">DESEO</span></div>
+        <div class="msg-card">
+          <div class="msg-hdr"><div class="msg-num">8G</div><div class="msg-meta"><div class="msg-name">Duda: no le han aprobado crédito antes</div><div class="msg-when">Cuando dice "el banco me rechazó" o "tengo mal historial"</div></div><span class="pill pill-gray">Duda · Financiamiento</span></div>
+          <div class="bubble"><p id="m8g"></p></div>
+          <button class="copy-btn" onclick="copyMsg('m8g')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+        </div>
+      </div>
+      <div class="sub-panel" id="sd8">
+        <div class="aida-bar"><span class="aida-tag aida-I">INTERÉS</span><span class="aida-tag aida-D">DESEO</span></div>
+        <div class="msg-card">
+          <div class="msg-hdr"><div class="msg-num">8H</div><div class="msg-meta"><div class="msg-name">Duda: objeta que el precio es muy alto</div><div class="msg-when">Cuando dice "está muy caro" o compara con terrenos informales</div></div><span class="pill pill-gray">Duda · Objeción precio</span></div>
+          <div class="bubble"><p id="m8h"></p></div>
+          <button class="copy-btn" onclick="copyMsg('m8h')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- T9 -->
+    <div class="tab-panel" id="t9">
+      <div class="tip"><i class="ti ti-bulb"></i><b>ATENCIÓN + DESEO</b> — Reactivación con urgencia diferenciada por proyecto: PDM → incremento por avance de obras. BDN → precio de preventa.</div>
+      <div class="aida-bar"><span class="aida-tag aida-A">ATENCIÓN</span><span class="aida-tag aida-D">DESEO</span></div>
+      <div class="msg-card">
+        <div class="msg-hdr"><div class="msg-num">9</div><div class="msg-meta"><div class="msg-name">Reactivación — prospecto frío</div><div class="msg-when">5–7 días sin respuesta</div></div><span class="pill pill-red">Reactivación</span></div>
+        <div class="bubble"><p id="m9"></p></div>
+        <button class="copy-btn" onclick="copyMsg('m9')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+      </div>
+    </div>
+
+    <!-- T10 -->
+    <div class="tab-panel" id="t10">
+      <div class="tip"><i class="ti ti-bulb"></i><b>DESEO + ACCIÓN</b> — Prueba social basada en voucher de depósito de venta real. La evidencia concreta convierte mejor que cualquier testimonio genérico.</div>
+      <div class="aida-bar"><span class="aida-tag aida-D">DESEO</span><span class="aida-tag aida-Ac">ACCIÓN</span></div>
+      <div class="msg-card">
+        <div class="msg-hdr"><div class="msg-num">10</div><div class="msg-meta"><div class="msg-name">Prueba social — voucher de venta real</div><div class="msg-when">Cuando el prospecto necesita validación externa para decidir</div></div><span class="pill pill-trust">Prueba social</span></div>
+        <div class="bubble"><p id="m10"></p></div>
+        <button class="copy-btn" onclick="copyMsg('m10')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+      </div>
+    </div>
+
+    <!-- T11 -->
+    <div class="tab-panel" id="t11">
+      <div class="tip"><i class="ti ti-bulb"></i><b>ACCIÓN</b> — Prospecto que quedó en depositar pero no lo hizo aún. Mensaje cálido, sin presión, que elimine cualquier fricción pendiente.</div>
+      <div class="aida-bar"><span class="aida-tag aida-Ac">ACCIÓN</span></div>
+      <div class="msg-card">
+        <div class="msg-hdr"><div class="msg-num">11</div><div class="msg-meta"><div class="msg-name">Seguimiento — pendiente depósito inicial</div><div class="msg-when">1–2 días después del acuerdo verbal de depositar</div></div><span class="pill pill-orange">Pend. depósito</span></div>
+        <div class="bubble"><p id="m11"></p></div>
+        <button class="copy-btn" onclick="copyMsg('m11')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+      </div>
+    </div>
+
+    <!-- T12 -->
+    <div class="tab-panel" id="t12">
+      <div class="tip"><i class="ti ti-bulb"></i><b>ATENCIÓN + ACCIÓN</b> — Cierre con urgencia diferenciada: PDM → precio sube por avance de obras. BDN → precio de preventa por tiempo limitado.</div>
+      <div class="aida-bar"><span class="aida-tag aida-A">ATENCIÓN</span><span class="aida-tag aida-Ac">ACCIÓN</span></div>
+      <div class="msg-card">
+        <div class="msg-hdr"><div class="msg-num">12</div><div class="msg-meta"><div class="msg-name">Cierre con urgencia real</div><div class="msg-when">Cuando hay riesgo real de que el lote se venda o el precio suba</div></div><span class="pill pill-red">Urgencia</span></div>
+        <div class="bubble"><p id="m12"></p></div>
+        <button class="copy-btn" onclick="copyMsg('m12')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+      </div>
+    </div>
+
+    <!-- T14 -->
+    <div class="tab-panel" id="t14">
+      <div class="tip"><i class="ti ti-bulb"></i><b>ACCIÓN pura</b> — Separación con umbral bajo (S/ 1,500), pasos claros, cuentas bancarias reales y fraccionamiento de inicial incluido.</div>
+      <div class="aida-bar"><span class="aida-tag aida-Ac">ACCIÓN</span></div>
+      <div class="msg-card">
+        <div class="msg-hdr"><div class="msg-num">14</div><div class="msg-meta"><div class="msg-name">Propuesta de separación</div><div class="msg-when">Cuando el prospecto dice "me interesa" o muestra señales de compra</div></div><span class="pill pill-orange">Cierre separación</span></div>
+        <div class="bubble"><p id="m14"></p></div>
+        <button class="copy-btn" onclick="copyMsg('m14')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+      </div>
+    </div>
+
+    <!-- T15 — POST DEPÓSITO -->
+    <div class="tab-panel" id="t15">
+      <div class="tip"><i class="ti ti-bulb"></i><b>POST-VENTA</b> — El cliente acaba de depositar la separación. Confirmar recepción, solicitar los datos necesarios y coordinar fecha de firma en Notaría Rivas.</div>
+      <div class="aida-bar"><span class="aida-tag aida-Ac">POST-DEPÓSITO</span></div>
+      <div class="msg-card">
+        <div class="msg-hdr"><div class="msg-num">15A</div><div class="msg-meta"><div class="msg-name">Confirmación de depósito recibido</div><div class="msg-when">Inmediatamente después de recibir el voucher de separación</div></div><span class="pill pill-teal">Post-depósito</span></div>
+        <div class="bubble"><p id="m15a"></p></div>
+        <button class="copy-btn" onclick="copyMsg('m15a')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+      </div>
+      <div class="msg-card">
+        <div class="msg-hdr"><div class="msg-num">15B</div><div class="msg-meta"><div class="msg-name">Solicitud de datos para contrato</div><div class="msg-when">Justo después del mensaje 15A o al día siguiente</div></div><span class="pill pill-teal">Datos contrato</span></div>
+        <div class="bubble"><p id="m15b"></p></div>
+        <button class="copy-btn" onclick="copyMsg('m15b')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+      </div>
+    </div>
+
+    <!-- T16 -->
+    <div class="tab-panel" id="t16">
+      <div class="tip"><i class="ti ti-bulb"></i><b>POST-VENTA</b> — Bienvenida al nuevo propietario. Refuerza la decisión, siembra la relación a largo plazo y solicita referidos.</div>
+      <div class="aida-bar"><span class="aida-tag aida-Ac">POST-VENTA</span></div>
+      <div class="msg-card">
+        <div class="msg-hdr"><div class="msg-num">16</div><div class="msg-meta"><div class="msg-name">Bienvenida al nuevo propietario</div><div class="msg-when">Después de firmado el contrato</div></div><span class="pill pill-teal">Bienvenida</span></div>
+        <div class="bubble"><p id="m16"></p></div>
+        <button class="copy-btn" onclick="copyMsg('m16')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+      </div>
+    </div>
+
+    <!-- T17 — FICHA DE PROYECTO -->
+    <div class="tab-panel" id="t17">
+      <div class="tip"><i class="ti ti-bulb"></i><b>INTERÉS</b> — Mensaje de presentación del proyecto con todos sus atributos y beneficios. Ideal para enviar cuando el prospecto pregunta "¿de qué trata el proyecto?" o quiere saber más antes de decidir si visita.</div>
+      <div class="aida-bar"><span class="aida-tag aida-I">INTERÉS</span><span class="aida-tag aida-D">DESEO</span></div>
+      <div class="msg-card">
+        <div class="msg-hdr"><div class="msg-num">17</div><div class="msg-meta"><div class="msg-name">Ficha completa del proyecto — atributos y beneficios</div><div class="msg-when">Cuando el prospecto pregunta "¿cómo es el proyecto?" o pide más información antes de decidir</div></div><span class="pill pill-blue">Ficha proyecto</span></div>
+        <div class="bubble"><p id="m17"></p></div>
+        <button class="copy-btn" onclick="copyMsg('m17')"><i class="ti ti-copy"></i> Copiar mensaje</button>
+      </div>
+    </div>
+
   </div>
 </div>
-
-<!-- FASE 2 -->
-<div class="phase">
-  <p class="phase-hdr"><i class="ti ti-cash" style="font-size:15px"></i> Fase 2 — Presentación financiera <span class="pill pill-blue" style="text-transform:none;letter-spacing:0">Día 2–3</span></p>
-  <div class="tip"><i class="ti ti-bulb"></i> Objetivo: eliminar la barrera del precio con números reales del lote cotizado y las ventajas del financiamiento directo.</div>
-  <div class="msg-card">
-    <div class="msg-hdr">
-      <div class="msg-num">3</div>
-      <div class="msg-meta"><div class="msg-name">Plan de pagos personalizado</div><div class="msg-when">Día 2 — con los datos del simulador</div></div>
-      <span class="pill pill-blue" style="text-transform:none">Financiero</span>
-    </div>
-    <div class="bubble"><p id="m3"></p></div>
-    <button class="copy-btn" onclick="copyMsg('m3')"><i class="ti ti-copy"></i> Copiar mensaje</button>
-  </div>
 </div>
-
-<!-- FASE 3 -->
-<div class="phase">
-  <p class="phase-hdr"><i class="ti ti-map-pin" style="font-size:15px"></i> Fase 3 — Visita y decisores <span class="pill pill-green" style="text-transform:none;letter-spacing:0">Semana 1</span></p>
-  <div class="tip"><i class="ti ti-bulb"></i> Objetivo: coordinar visita guiada con todos los decisores. Movilidad disponible sin costo ni compromiso.</div>
-  <div class="msg-card">
-    <div class="msg-hdr">
-      <div class="msg-num">4</div>
-      <div class="msg-meta"><div class="msg-name">Invitación a visita guiada</div><div class="msg-when">Día 3–4</div></div>
-      <span class="pill pill-green" style="text-transform:none">Visita</span>
-    </div>
-    <div class="bubble"><p id="m4"></p></div>
-    <button class="copy-btn" onclick="copyMsg('m4')"><i class="ti ti-copy"></i> Copiar mensaje</button>
-  </div>
-</div>
-
-<!-- FASE 4 -->
-<div class="phase">
-  <p class="phase-hdr"><i class="ti ti-clock" style="font-size:15px"></i> Fase 4 — Seguimiento y urgencia real <span class="pill pill-orange" style="text-transform:none;letter-spacing:0">Semana 2</span></p>
-  <div class="tip"><i class="ti ti-bulb"></i> Solo usar urgencia real. Nunca inventar presión falsa.</div>
-  <div class="msg-card">
-    <div class="msg-hdr">
-      <div class="msg-num">5</div>
-      <div class="msg-meta"><div class="msg-name">Seguimiento post-visita o silencio</div><div class="msg-when">2–3 días después del último contacto</div></div>
-      <span class="pill pill-red" style="text-transform:none">Reactivación</span>
-    </div>
-    <div class="bubble"><p id="m5"></p></div>
-    <button class="copy-btn" onclick="copyMsg('m5')"><i class="ti ti-copy"></i> Copiar mensaje</button>
-  </div>
-  <div class="msg-card">
-    <div class="msg-hdr">
-      <div class="msg-num">6</div>
-      <div class="msg-meta"><div class="msg-name">Testimonial de cliente real</div><div class="msg-when">1–2 días después del mensaje 5</div></div>
-      <span class="pill pill-trust" style="text-transform:none">Prueba social</span>
-    </div>
-    <div class="bubble"><p id="m6"></p></div>
-    <button class="copy-btn" onclick="copyMsg('m6')"><i class="ti ti-copy"></i> Copiar mensaje</button>
-  </div>
-</div>
-
-<!-- FASE 5 -->
-<div class="phase">
-  <p class="phase-hdr"><i class="ti ti-signature" style="font-size:15px"></i> Fase 5 — Cierre <span class="pill pill-orange" style="text-transform:none;letter-spacing:0">Semana 3</span></p>
-  <div class="msg-card">
-    <div class="msg-hdr">
-      <div class="msg-num">7</div>
-      <div class="msg-meta"><div class="msg-name">Propuesta de separación</div><div class="msg-when">Cuando el prospecto muestra interés real</div></div>
-      <span class="pill pill-orange" style="text-transform:none">Cierre</span>
-    </div>
-    <div class="bubble"><p id="m7"></p></div>
-    <button class="copy-btn" onclick="copyMsg('m7')"><i class="ti ti-copy"></i> Copiar mensaje</button>
-  </div>
-</div>
-
-</div><!-- /wrap -->
 
 <script>
 function fmt(n){return Math.round(n).toLocaleString('es-PE');}
-function datos(){
-  var pEl=document.getElementById('f-proyecto');
-  var pVal=pEl.value;
-  var pNombre=pVal==='bdn'?'Brisas de Naylamp — Lambayeque':pVal==='pdm'?'Puerta del Mar — Pimentel':'[Proyecto]';
-  return {
-    cliente:document.getElementById('f-cliente').value.trim()||'[Nombre del cliente]',
-    asesor:document.getElementById('f-asesor').value||'[Asesor]',
-    proy:pVal,pn:pNombre,
-    lote:document.getElementById('f-lote').value.trim()||'[Lote]',
-    precio:parseFloat(document.getElementById('f-precio').value)||78000,
-    ini_pct:parseFloat(document.getElementById('f-ini').value)||10,
-    plazo:parseInt(document.getElementById('f-plazo').value)||60
-  };
-}
-function calcCuota(precio,ini_pct,plazo){
-  var ini=precio*(ini_pct/100),saldo=precio-ini;
+function fmtDec(n){return n.toLocaleString('es-PE',{minimumFractionDigits:2,maximumFractionDigits:2});}
+function cuotaMensual(saldo,plazo){
+  if(plazo<=0||saldo<=0)return 0;
   var tma=Math.pow(1.22,1/12)-1;
-  var cuota=saldo*(tma*Math.pow(1+tma,plazo))/(Math.pow(1+tma,plazo)-1);
-  return {ini:ini,saldo:saldo,cuota:cuota};
+  return saldo*(tma*Math.pow(1+tma,plazo))/(Math.pow(1+tma,plazo)-1);
+}
+function addWorkDays(n){
+  var d=new Date(); var added=0;
+  while(added<n){d.setDate(d.getDate()+1);var day=d.getDay();if(day!==0&&day!==6)added++;}
+  return d.toLocaleDateString('es-PE',{weekday:'long',day:'numeric',month:'long'});
+}
+function validateAndRender(){
+  var valid=true;
+  var fields=[
+    {id:'f-cliente',fi:'fi-cliente',check:function(v){return v.trim()!==''}},
+    {id:'f-asesor', fi:'fi-asesor', check:function(v){return v!==''}},
+    {id:'f-proyecto',fi:'fi-proyecto',check:function(v){return v!==''}},
+    {id:'f-lote',   fi:'fi-lote',   check:function(v){return v.trim()!==''}},
+    {id:'f-precio', fi:'fi-precio', check:function(v){return parseFloat(v)>0}},
+    {id:'f-ini',    fi:'fi-ini',    check:function(v){return parseFloat(v)>=10}},
+    {id:'f-plazo',  fi:'fi-plazo',  check:function(v){return v!==''}}
+  ];
+  fields.forEach(function(f){
+    var el=document.getElementById(f.id);
+    var fi=document.getElementById(f.fi);
+    if(!f.check(el.value)){fi.classList.add('has-error');el.classList.add('invalid');valid=false;}
+    else{fi.classList.remove('has-error');el.classList.remove('invalid');}
+  });
+  if(!valid){document.getElementById('gen-ok').style.display='none';return;}
+  renderAll();
+  document.getElementById('res-section').style.display='block';
+  document.getElementById('tabs-wrap').style.display='block';
+  var ok=document.getElementById('gen-ok');
+  ok.style.display='block';
+  setTimeout(function(){ok.style.display='none';},4000);
 }
 function renderAll(){
-  var d=datos(),c=calcCuota(d.precio,d.ini_pct,d.plazo);
-  document.getElementById('r-ini').textContent='S/ '+fmt(c.ini);
-  document.getElementById('r-saldo').textContent='S/ '+fmt(c.saldo);
-  document.getElementById('r-cuota').textContent='S/ '+fmt(c.cuota);
-  document.getElementById('hdr-sub').textContent=d.pn+' · Financiamiento directo TEA 22%';
+  var pVal=document.getElementById('f-proyecto').value;
+  var pn=pVal==='bdn'?'Brisas de Naylamp — Lambayeque':pVal==='pdm'?'Puerta del Mar — Pimentel':'[Proyecto]';
+  var cliente=document.getElementById('f-cliente').value.trim();
+  var asesor=document.getElementById('f-asesor').value;
+  var lote=document.getElementById('f-lote').value.trim();
+  var precio=parseFloat(document.getElementById('f-precio').value)||0;
+  var ini_pct=parseFloat(document.getElementById('f-ini').value)||10;
+  var plazo=parseInt(document.getElementById('f-plazo').value)||60;
+  var ini=precio*(ini_pct/100);
+  var saldo=precio-ini;
+  var cuota=cuotaMensual(saldo,plazo);
+  document.getElementById('r-ini').textContent='S/ '+fmt(ini);
+  document.getElementById('r-saldo').textContent='S/ '+fmt(saldo);
+  document.getElementById('r-cuota').textContent='S/ '+fmtDec(cuota);
+  document.getElementById('hdr-sub').textContent=pn+' · Financiamiento directo TEA 22%';
 
-  document.getElementById('m1').textContent=
-    'Hola '+d.cliente+' 👋, soy '+d.asesor+' de Portada Blanca Constructora & Inmobiliaria.\n\n'
-   +'Vi que te interesaste en nuestro proyecto '+d.pn+' — una excelente elección. 🏡\n\n'
-   +'En Portada Blanca trabajamos con transparencia, nuestros proyectos tienen todos los documentos en regla y además el financiamiento es 100% directo con nosotros, sin banco de por medio.\n\n'
-   +'Además, contamos con movilidad propia para llevarte a conocer el proyecto cuando gustes, sin ningún compromiso de tu parte. Solo ven, conoce y decide con tranquilidad. 😊\n\n'
-   +'¿Te gustaría que te cuente más sobre los lotes disponibles?';
+  // FRACCIONAMIENTO
+  var maxC=0;
+  if(ini_pct>=10&&ini_pct<=14)maxC=2;
+  else if(ini_pct>=15&&ini_pct<=19)maxC=3;
+  else if(ini_pct>=20&&ini_pct<=24)maxC=4;
+  else if(ini_pct>=25)maxC=5;
+  var fracBox=document.getElementById('frac-box');
+  var fracGrid=document.getElementById('frac-grid');
+  if(maxC>1){
+    fracBox.style.display='block';
+    var html='';
+    for(var q=1;q<=maxC;q++){html+='<div class="frac-row"><span class="frac-label">'+q+' cuota'+(q>1?'s':'')+' de inicial</span><span class="frac-val">S/ '+fmtDec(ini/q)+' c/u</span></div>';}
+    fracGrid.innerHTML=html;
+  } else {fracBox.style.display='none';}
 
-  var docs=d.proy==='bdn'
-    ?'✅ Partida Registral en Sunarp\n✅ Certificado de Zonificación y Vías\n✅ Plano de agua y desagüe aprobado'
-    :d.proy==='pdm'
-    ?'✅ Partida Registral en Sunarp\n✅ Habilitación Urbana aprobada\n✅ Certificado de Zonificación y Vías\n✅ Plano de lotización y áreas comunes'
-    :'✅ Partida Registral en Sunarp\n✅ Habilitación Urbana aprobada\n✅ Certificado de Zonificación y Vías';
-  document.getElementById('m2').textContent=
-    d.cliente+', para que tengas toda la tranquilidad antes de tomar cualquier decisión, te comparto los documentos que respaldan nuestro proyecto '+d.pn+' 👇\n\n'
-   +docs+'\n\n'
-   +'Todo está en orden y a tu disposición para revisarlo con quien tú consideres de confianza. En Portada Blanca no vendemos promesas — vendemos terrenos con todo en regla. 🔐';
+  var fracInfo=maxC>1?'\n💡 Además, puedes fraccionar tu inicial en hasta '+maxC+' pagos de S/ '+fmtDec(ini/maxC)+' c/u.':'';
+  var docs=pVal==='bdn'
+    ?'📄 Partida Registral en Sunarp\n📋 Certificado de Zonificación y Vías\n🗺️ Plano de agua y desagüe aprobado'
+    :pVal==='pdm'
+    ?'📄 Partida Registral en Sunarp\n🏗️ Habilitación Urbana aprobada\n📋 Certificado de Zonificación y Vías\n🗺️ Plano de lotización y áreas comunes'
+    :'📄 Partida Registral en Sunarp\n🏗️ Habilitación Urbana aprobada\n📋 Certificado de Zonificación y Vías';
 
-  document.getElementById('m3').textContent=
-    d.cliente+', ¿sabías que puedes tener tu lote con una inicial desde el 10%? 🏡\n\n'
-   +'Te armo una simulación con los números reales de tu cotización:\n\n'
-   +'📍 Proyecto: '+d.pn+'\n'
-   +'📌 Lote: '+d.lote+'\n'
-   +'💰 Precio: S/ '+fmt(d.precio)+'\n'
-   +'✅ Inicial mínima ('+d.ini_pct+'%): S/ '+fmt(c.ini)+'\n'
-   +'📆 Cuota mensual: desde S/ '+fmt(c.cuota)+' / mes\n'
-   +'⏳ Plazo: '+d.plazo+' meses\n\n'
-   +'Y lo mejor: el financiamiento es 100% directo con nosotros. Sin banco, sin gestión de crédito, sin rechazos. Tú tratas directamente con Portada Blanca. 👌\n\n'
-   +'¿Te gustaría ver el detalle completo o comparar con otro lote disponible?';
+  // URGENCIA DIFERENCIADA POR PROYECTO
+  var urgencia='';
+  if(pVal==='pdm'){
+    urgencia='En Puerta del Mar el avance de obras es constante y cada etapa completada incrementa el precio del lote. Los que compran hoy lo hacen al precio actual — los que esperan, lo hacen a precio mayor. 📈';
+  } else if(pVal==='bdn'){
+    urgencia='Brisas de Naylamp está en etapa de preventa, que es el mejor momento para comprar al precio más bajo. Una vez cerrada esta etapa, los precios suben y no vuelven atrás. 🔒';
+  } else {
+    urgencia='Estamos en etapa de preventa y los precios subirán al cierre de esta fase. Los que compran ahora aseguran el mejor precio. 📈';
+  }
 
-  document.getElementById('m4').textContent=
-    d.cliente+', te invito a conocer '+d.pn+' en persona. 🚗\n\n'
-   +'Cuando ves el terreno con tus propios ojos — la ubicación, los accesos, el avance de obra — las dudas desaparecen solas.\n\n'
-   +'Si vas con tu pareja o alguien de confianza, mucho mejor. Estas decisiones se toman mejor en familia. 👨‍👩‍👧\n\n'
-   +'Y no te preocupes por el traslado: contamos con movilidad propia para recogerte y llevarte al proyecto sin ningún costo ni compromiso de tu parte.\n\n'
-   +'¿Qué día te viene bien esta semana o la próxima? Yo te acompaño personalmente y te explico todo sin apuro. 😊';
+  var fechaFirma=addWorkDays(2);
+  var cuentas='🏦 BBVA\n   Cuenta Soles: 0011-0285-01-00197309\n   CCI: 011-285-000100197309-46\n\n🏦 BCP\n   Cuenta Soles: 305-2055529-0-25\n   CCI: 002-305-002055529025-11\n\nA nombre de: Portada Blanca Constructora & Inmobiliaria\nRUC: 20611225645';
 
-  document.getElementById('m5').textContent=
-    'Hola '+d.cliente+', ¿cómo estás? 😊\n\n'
-   +'Solo quería avisarte que el lote '+d.lote+' en '+d.pn+' sigue disponible, pero estamos en la última etapa de preventa con este precio.\n\n'
-   +'Una vez que se cierren los lotes disponibles en esta etapa, los precios suben para la siguiente. Muchos clientes se arrepienten de haber esperado más de la cuenta.\n\n'
-   +'¿Hay algo en lo que pueda ayudarte a decidir? Puedo resolver cualquier duda que tengas tú o tu familia. 🙏';
+  // M1
+  set('m1','¡Hola *'+cliente+'*! 👋✨\nSoy *'+asesor+'* de *Portada Blanca Constructora & Inmobiliaria*.\n\nVi que te interesaste en *'+pn+'* — y quiero contarte por qué cada vez más familias 👨‍👩‍👧 eligen invertir con nosotros. 🏡🌟\n\nEn Portada Blanca trabajamos con *transparencia total*: nuestros proyectos tienen todos los documentos en regla y el financiamiento es *100% directo con nosotros*, sin banco de por medio. 🔐💯\n\nY para que lo conozcas *sin ningún compromiso*, contamos con movilidad propia 🚗 para llevarte al proyecto cuando gustes. Solo ven, mira y decide con calma. 😊\n\n¿Te cuento más sobre los lotes disponibles? 👇');
 
-  document.getElementById('m6').textContent=
-    d.cliente+', te quiero compartir algo que nos dijeron unos clientes nuestros hace poco 👇\n\n'
-   +'[Adjuntar screenshot o audio de testimonio real]\n\n'
-   +'Ellos también dudaron al principio, sobre todo por el precio — pero en ese momento todavía no conocían nuestro proyecto ni la formalidad de la empresa. Como muchos, habían visitado proyectos poco seguros y eso les generaba desconfianza.\n\n'
-   +'Hoy nos cuentan que tienen la tranquilidad de saber que su inversión está a salvo y creciendo mes a mes. Esa paz mental no tiene precio. 🙌\n\n'
-   +'La diferencia entre un lote formal como el nuestro y uno informal no es solo el precio — es saber que lo que compraste realmente es tuyo. 🔐';
+  // M2
+  set('m2','*'+cliente+'*, sé que cuando se trata de una inversión importante, *la confianza lo es todo*. 🤝💛\n\nPor eso quiero mostrarte con *hechos*, no solo palabras. Aquí los documentos que respaldan nuestro proyecto *'+pn+'* 👇\n\n'+docs+'\n\nTodo está en regla y disponible para que lo revises con quien tú consideres — tu familia, un abogado, quien prefieras. 🔍✅\n\n_En Portada Blanca no vendemos promesas. Vendemos terrenos con todo en orden._ 💪🏽');
 
-  document.getElementById('m7').textContent=
-    d.cliente+', si quieres asegurar el lote '+d.lote+' en '+d.pn+' antes de que alguien más lo tome, podemos hacer la separación hoy mismo. 📝\n\n'
-   +'Con una separación de S/ 1,500 el lote queda reservado a tu nombre mientras coordinamos el pago de la inicial y firmamos el contrato.\n\n'
-   +'El proceso es muy sencillo:\n'
-   +'1️⃣ Realizas la separación de S/ 1,500\n'
-   +'2️⃣ Coordinas el pago de tu inicial (mínimo S/ '+fmt(c.ini)+')\n'
-   +'3️⃣ Firmamos contrato y el lote es tuyo\n\n'
-   +'Puedes realizar el depósito de separación en cualquiera de estas cuentas:\n\n'
-   +'🏦 BBVA\n'
-   +'   Cuenta Soles: 0011-0285-01-00197309\n'
-   +'   CCI: 011-285-000100197309-46\n\n'
-   +'🏦 BCP\n'
-   +'   Cuenta Soles: 305-2055529-0-25\n'
-   +'   CCI: 002-305-002055529025-11\n\n'
-   +'A nombre de: Portada Blanca Constructora & Inmobiliaria\n'
-   +'RUC: 20611225645\n\n'
-   +'Una vez realizado el depósito, envíame el comprobante y yo gestiono todo lo demás. ¿Lo hacemos hoy? 💪';
+  // M3
+  set('m3','*'+cliente+'*, imagínate tener tu propio lote en *'+pn+'* pagando cómodamente mes a mes... 🌟💭\n\nCon solo el *'+ini_pct+'%* de inicial, eso ya es posible. Te hice tu *simulación personalizada* 👇\n\n📍 *Proyecto:* '+pn+'\n📌 *Lote:* '+lote+'\n💰 *Precio total:* S/ '+fmt(precio)+'\n✅ *Inicial ('+ini_pct+'%):* S/ '+fmt(ini)+'\n📆 *Cuota mensual:* S/ '+fmtDec(cuota)+' al mes\n⏳ *Plazo:* '+plazo+' meses'+fracInfo+'\n\n🏦 El financiamiento es *100% directo* con nosotros. Sin banco, sin trámites, sin rechazos. ¡Solo tú y Portada Blanca! 🙌\n\n¿Ajustamos el plazo o la inicial a lo que mejor te acomode? 💬');
+
+  // M4
+  set('m4','*'+cliente+'*, hay algo que ninguna foto ni mensaje puede reemplazar... 👀✨\n\n_¡Ver el terreno con tus propios ojos!_ 🏞️🌄\n\nCuando estás ahí — sientes la ubicación, ves el *avance real de la obra*, respiras el proyecto — todo cobra vida y la decisión se vuelve mucho más fácil. 💡\n\nTe propongo esto 👇\nCoordinamos una *visita guiada* a *'+pn+'*, sin ningún compromiso de tu parte. Si puedes venir con tu pareja o alguien de confianza, ¡mucho mejor! — estas decisiones se toman mejor en familia. 👨‍👩‍👧❤️\n\n🚗 *Y no te preocupes por el traslado:* tenemos movilidad propia para recogerte sin ningún costo.\n\n¿Qué día te viene mejor esta semana o la próxima? 📅');
+
+  // M5A
+  set('m5a','¡Hola *'+cliente+'*! 👋😊\n\nTe escribo para *confirmar* nuestra visita de mañana al proyecto *'+pn+'*. 🏗️📍\n\nRecuerda que contamos con movilidad para recogerte. 🚗 ¿Confirmamos el punto de encuentro y la hora?\n\nSi por algún motivo necesitas reagendar, avísame con tiempo y lo coordinamos sin problema. 🙏\n\n_¡Mañana te vas a llevar una muy buena impresión!_ 🌟✨');
+
+  // M5B
+  set('m5b','¡*Buenos días '+cliente+'*! ☀️🌈\n\n*¡Hoy es el gran día!* — en unas horas conocerás *'+pn+'* en persona. 🏡🎉\n\nEstaré puntual para recibirte. 😊 Cualquier cosa que necesites antes de llegar, escríbeme. 📲\n\n_¡Nos vemos pronto!_ 🚗💨');
+
+  // M6
+  set('m6','*'+cliente+'*, espero que hayas llegado bien a casa. 😊🏠\n\nFue un gusto mostrarte *'+pn+'* hoy. Me alegra mucho que hayas podido ver el *avance real del proyecto* con tus propios ojos. 🏗️✨\n\n¿Qué fue lo que *más te gustó*? 🤩 Y si quedó alguna duda o algo que quieras revisar con más calma, aquí estoy. 🙋\n\nEl lote *'+lote+'* que vimos sigue disponible — y si quieres asegurarlo antes de que alguien más lo tome, podemos iniciar el proceso con muy poco. ¿Hablamos? 💬🔑');
+
+  // M7
+  set('m7','*'+cliente+'*, gracias por tomarte el tiempo de la videollamada hoy. 🙏📱\n\nFue genial mostrarte *'+pn+'* en vivo y que pudieras ver el estado real del proyecto. 🏗️✅\n\nSé que hay cosas que se ven y se sienten *mejor en persona* — por eso te renuevo la invitación a visitarnos cuando puedas. 🚗 Tenemos movilidad para recogerte sin costo.\n\n¿Quedó alguna duda después de la llamada que pueda resolver ahora? 🤔💬\n\n_Recuerda: el lote '+lote+' te está esperando._ 🔑🏡');
+
+  // M8A — Duda precio (también usado en sd1)
+  set('m8a','*'+cliente+'*, entiendo perfectamente — el precio es un factor muy importante y está bien evaluarlo con cuidado. 🤝\n\nPermíteme mostrarte una perspectiva diferente 👇\n\nUn lote informal puede parecer *más barato al inicio*, pero ¿qué pasa si no tiene Sunarp en regla? ¿Si no tiene habilitación urbana? ¿Si hay problemas legales más adelante? 😟 El costo real puede ser mucho mayor — y recuperar esa inversión puede volverse _imposible_.\n\nEl lote *'+lote+'* en *'+pn+'* vale *S/ '+fmt(precio)+'* porque detrás hay:\n\n🔐 *Seguridad jurídica total*\n📄 *Documentos aprobados y verificables*\n🏗️ *Avance real que puedes ver con tus ojos*\n💰 *Financiamiento directo, cuotas desde S/ '+fmtDec(cuota)+' al mes*\n\n_No estás pagando solo por tierra. Estás pagando por la tranquilidad de que tu inversión está protegida._ 💪\n\n¿Buscamos el plazo que mejor se adapte a tu presupuesto? 💬');
+
+  // M8B — Duda cuota
+  set('m8b','*'+cliente+'*, eso es exactamente lo que podemos ajustar juntos. 😊✅\n\n_La cuota no es fija_ — depende del plazo que elijas. *Si alargamos el plazo, la cuota baja.* Aquí algunos escenarios para el lote *'+lote+'* 👇\n\n📆 *60 meses* → S/ '+fmtDec(cuotaMensual(saldo,60))+' al mes\n📆 *84 meses* → S/ '+fmtDec(cuotaMensual(saldo,84))+' al mes\n📆 *96 meses* → S/ '+fmtDec(cuotaMensual(saldo,96))+' al mes\n📆 *120 meses* → S/ '+fmtDec(cuotaMensual(saldo,120))+' al mes\n\n🙌 El financiamiento es directo con nosotros — y si en algún momento tu situación mejora, puedes hacer *pagos adelantados* sin penalidad.\n\n¿Con cuál de estos montos te sentirías más cómodo/a? 💬');
+
+  // M8C — Duda ubicación
+  set('m8c','*'+cliente+'*, es una duda muy válida y me alegra que me lo preguntes antes de decidir. 😊\n\nTe cuento por qué *'+pn+'* es una zona con *mucho futuro* 👇\n\n'+(pVal==='pdm'?'🌊 *Puerta del Mar* está en *Pimentel* — uno de los balnearios más visitados de la costa norte del Perú. 🏖️ La demanda de terrenos en la zona *crece cada año*, lo que significa que tu inversión se valoriza sola con el tiempo. 📈\n\n🛣️ La zona tiene proyección de desarrollo urbano, vías en mejora y *acceso directo a la playa* a solo 3 minutos.':pVal==='bdn'?'🌿 *Brisas de Naylamp* está en *Lambayeque*, a pocos minutos de Chiclayo — la ciudad con *mayor crecimiento comercial del norte del país*. 🏙️📈 La demanda de terrenos en esta zona crece constantemente.\n\n🚗 Acceso directo por vías principales, cerca de todo lo que necesitas para vivir o construir.':'📍 El proyecto está en una zona con *alta proyección de valorización* y acceso a servicios esenciales.')+'\n\n_La mejor forma de comprobarlo es con una visita_ — te mostramos todo sin compromiso. 🚗✨\n\n¿Coordinamos para que lo veas en persona? 📅');
+
+  // M8D — Duda documentos
+  set('m8d','*'+cliente+'*, tienes toda la razón en preguntar eso. 🤝 Lamentablemente hay muchos proyectos en el mercado que no dan esa seguridad, y es completamente válido desconfiar. 😔\n\nPor eso en Portada Blanca *ponemos los documentos sobre la mesa desde el primer día*. Para *'+pn+'* puedes verificar:\n\n'+docs+'\n\nTodo está inscrito y verificable en *Sunarp* — puedes consultarlo tú mismo/a o pedirle a un abogado de confianza que lo revise. 🔍 *No tenemos nada que ocultar.* ✅\n\n_¿Quieres que te comparta los documentos ahora mismo para que los revises con calma?_ 📲');
+
+  // M8E — Duda familia
+  set('m8e','*'+cliente+'*, eso habla muy bien de ti — *las decisiones importantes se toman mejor en familia*. 👨‍👩‍👧❤️\n\nTe propongo algo 👇\nEn lugar de explicarle todo a tu pareja de segunda mano, ¿por qué no los invito a *ambos* a conocer el proyecto juntos?\n\nVemos el lote *'+lote+'* en *'+pn+'*, les resuelvo todas las dudas en persona y pueden decidir con *toda la información sobre la mesa*. Sin ningún compromiso. 😊\n\n🚗 Tenemos movilidad para recogerlos sin costo.\n\n¿Qué día podrían venir los dos? 📅');
+
+  // M8F — Duda timing
+  set('m8f','*'+cliente+'*, lo entiendo — y no quiero presionarte. Pero sí quiero ser *honesto/a contigo* antes de que tomes esa decisión. 🤝\n\n⚠️ '+urgencia+'\n\n_Esperar unos meses puede significar pagar más por el mismo lote — o encontrarlo ya vendido._ 😟\n\nEso no quiere decir que tengas que decidir hoy mismo. Pero sí vale la pena que analicemos juntos si el *"más adelante"* tiene un costo real para ti. 💡\n\n¿Qué es lo que haría que este sea el *momento correcto*? Cuéntame y buscamos la forma. 💬');
+
+  // M8G — Duda financiamiento
+  set('m8g','*¡'+cliente+', esta es exactamente la situación para la que fue pensado nuestro financiamiento!* 🙌🎯\n\nEn Portada Blanca el crédito es *100% directo con nosotros* — no pasamos tu solicitud a ningún banco, *no revisamos centrales de riesgo* y no hay proceso de aprobación bancaria. 🚫🏦\n\nSi tienes la capacidad de pagar una cuota mensual de *S/ '+fmtDec(cuota)+'*, puedes tener tu lote *'+lote+'* en *'+pn+'*. Así de sencillo. ✅\n\n✅ Sin banco\n✅ Sin Infocorp\n✅ Sin trámites de crédito\n✅ _Solo tu inicial y tus cuotas directamente con nosotros_\n\n¿Quieres que conversemos los detalles? 😊💬');
+
+  // M8H — Duda objeción precio (nuevo sub-tab)
+  set('m8h','*'+cliente+'*, entiendo que el precio llame la atención al principio — y está bien cuestionarlo. 🤝\n\nPero te hago una pregunta importante 👇\n\n_¿Estás comparando con terrenos que tienen la misma seguridad jurídica que este?_ 🤔\n\nUn lote más barato sin Sunarp, sin habilitación urbana o sin documentos en regla *no es más barato — es más riesgoso*. Y recuperar ese dinero después puede ser imposible. 😟\n\nEl lote *'+lote+'* en *'+pn+'* a *S/ '+fmt(precio)+'* incluye:\n\n🔐 Seguridad jurídica *total* verificable en Sunarp\n📄 *Todos los documentos* aprobados y en regla\n🏗️ *Avance real* de obra que puedes ver en persona\n🏦 *Financiamiento directo* — cuotas desde S/ '+fmtDec(cuota)+' al mes en '+plazo+' meses\n\n_No estás pagando solo por tierra. Estás pagando por la tranquilidad de que tu inversión está protegida y creciendo mes a mes._ 💹🔐\n\n¿Ajustamos el plazo para que la cuota se adapte mejor a tu bolsillo? 💬');
+
+  // M9 — Reactivación
+  set('m9','¡Hola *'+cliente+'*! ¿Cómo estás? 😊👋\n\nHace unos días hablamos sobre el lote *'+lote+'* en *'+pn+'* y quería saber cómo ibas con la decisión.\n\nTe cuento algo importante que *no quisiera que te perdieras* 👇\n\n⚠️ '+urgencia+'\n\n_No quiero que en unos meses mires atrás y pienses "debí haberlo hecho cuando me lo ofrecieron"._ 🙏\n\n¿Qué fue lo que te frenó? Cuéntame con confianza — si es el precio, la cuota, los documentos o simplemente necesitas más tiempo, *estoy aquí para ayudarte*. 💬🤝');
+
+  // M10 — Prueba social voucher
+  set('m10','*'+cliente+'*, quiero mostrarte algo que *habla por sí solo* 👇\n\n📸 _[Adjuntar foto del voucher de depósito de venta real de un lote en '+pn+']_\n\nEste es el *voucher de depósito real* de un cliente que acaba de asegurar su lote en *'+pn+'* esta semana. No es publicidad — *es una venta real*. 🏡✅\n\nCada semana se van cerrando lotes en nuestros proyectos, y los que esperan se encuentran con que el lote que querían *ya no está disponible* — o que el *precio subió*. 📈😟\n\n⚠️ '+urgencia+'\n\nEl lote *'+lote+'* todavía está disponible y *puede ser tuyo hoy mismo*. ¿Lo aseguramos? 🔑🎉');
+
+  // M11 — Pendiente depósito
+  set('m11','¡Hola *'+cliente+'*! 😊\n\nTe escribo porque quedamos en que ibas a coordinar el depósito del lote *'+lote+'* en *'+pn+'*, y quería saber si tienes alguna consulta pendiente antes de hacerlo. 🏡💬\n\nRecuerda que con *solo S/ 1,500 de separación* el lote queda reservado *exclusivamente a tu nombre*. 🔐 Después coordinamos tranquilamente el resto de la inicial (*S/ '+fmt(ini)+'*) y el contrato. 📝\n\nSi algo se complicó o necesitas ajustar algo, dímelo con confianza — *buscamos la forma de que esto funcione para ti*. 🤝\n\nAquí los datos para el depósito 👇\n\n'+cuentas+'\n\n¿Cómo vas? 🙏');
+
+  // M12 — Cierre urgencia
+  set('m12','*'+cliente+'*, quiero contarte algo *antes de que sea tarde*. ⚠️🏃\n\nEl lote *'+lote+'* en *'+pn+'* tiene interés de otras personas en este momento — y *no quiero que lo pierdas*. 🏡💛\n\n⚡ '+urgencia+'\n\n_¿Qué necesitas para tomar la decisión hoy?_ Dime qué te frena y lo resolvemos ahora mismo. 💬\n\nCon *solo S/ 1,500* de separación lo aseguramos mientras coordinamos todo lo demás. 🔑✅');
+
+  // M14 — Separación
+  set('m14','*'+cliente+'*, ¡llegó el momento de hacer tuyo ese lote! 🔑🎉\n\nPuedes asegurar el lote *'+lote+'* en *'+pn+'* hoy mismo con *solo S/ 1,500 de separación* — con eso queda reservado a tu nombre mientras coordinamos la inicial y el contrato. ✅\n\n*El proceso es súper sencillo* 👇\n\n1️⃣ Depositas *S/ 1,500* de separación\n2️⃣ Coordinas tu inicial de *S/ '+fmt(ini)+'* ('+ini_pct+'%)'+(maxC>1?' — en hasta *'+maxC+' cuotas* de S/ '+fmtDec(ini/maxC)+' c/u':'')+'\n3️⃣ Firmamos el contrato y *¡el lote es tuyo!* 🏡🎊\n\nPuedes depositar en cualquiera de estas cuentas 👇\n\n'+cuentas+'\n\n_Envíame el comprobante y yo me encargo de todo lo demás._ ¿Lo hacemos *ahora*? 💪😊');
+
+  // M15A — Confirmación de depósito
+  set('m15a','*¡'+cliente+', recibimos tu depósito!* 🎉🏡🎊\n\nQueda *confirmada* la separación del lote *'+lote+'* en *'+pn+'*. ¡Tu inversión ya está protegida con nosotros! 🔐✅\n\nEn un momento te escribo con los datos que necesitamos para preparar el contrato. 📋\n\n_¡Felicitaciones por esta gran decisión!_ 🙌💛');
+
+  // M15B — Solicitud de datos (1 titular, S/40 total)
+  set('m15b','*'+cliente+'*, para preparar tu contrato necesitamos los siguientes datos 📋👇\n\nPor favor envíame:\n\n1️⃣ *DNI* del titular\n2️⃣ *Correo electrónico*\n3️⃣ *Número de celular*\n\nUna vez que tengamos todo listo, coordinamos la firma del contrato en la *Notaría Rivas*, que está a *media cuadra de nuestra oficina*. 📍🏢\n\n📅 *Fecha tentativa de firma:* '+fechaFirma+' _(2 días hábiles)_\n\n💡 *El costo de la firma notarial es de S/ 40*, que se paga directamente en la notaría el día de la firma.\n\n¿Puedes enviarme los datos *hoy*? Así adelantamos todo. 😊🙏');
+
+  // M16 — Bienvenida
+  set('m16','*¡'+cliente+', bienvenido/a a la familia Portada Blanca!* 🎉🏡💛\n\nEs un honor que hayas confiado en nosotros para una decisión tan importante. El lote *'+lote+'* en *'+pn+'* ya es tuyo — ¡y me alegra muchísimo! 🙌✨\n\nEn Portada Blanca el compromiso *no termina con la firma* — estamos aquí para acompañarte en cada etapa, desde el seguimiento de tu inversión hasta la entrega del lote. 💼🤝\n\nSi en algún momento tienes alguna consulta o necesitas algo, escríbeme directamente. Soy *'+asesor+'* y seguiré siendo tu contacto. 😊📲\n\nPor último: si conoces a alguien — familiar, amigo o colega — que también esté buscando invertir en un terreno seguro, con gusto lo atiendo con la misma dedicación. 🤝\n\n_¡Gracias por elegir Portada Blanca!_ 💛🌟');
+
+  // M17 — Ficha de proyecto
+  var m17txt='';
+  if(pVal==='bdn'){
+    m17txt=cliente+', te cuento todo sobre Brisas de Naylamp — Lambayeque 🌿\n\n'
+      +'Un proyecto inspirado en la cultura Naylamp, rodeado de naturaleza y a solo 5 minutos de la ciudad de Lambayeque. Diseñado para quienes buscan tranquilidad, inversión segura y calidad de vida. 🏡\n\n'
+      +'📍 UBICACIÓN\n'
+      +'Lambayeque — a 5 minutos del centro de la ciudad, con acceso directo por vías principales.\n\n'
+      +'🏗️ TIPO DE PRODUCTO\n'
+      +'Lotes desde 300 m² — ideales para construir tu casa de campo o como inversión de plusvalía.\n\n'
+      +'✅ ATRIBUTOS DEL PROYECTO\n'
+      +'🔐 Seguridad jurídica total:\n'
+      +'   • Partida Registral inscrita en Sunarp\n'
+      +'   • Certificado de Zonificación y Vías\n'
+      +'   • Plano de agua y desagüe aprobado\n\n'
+      +'🌿 Entorno y calidad de vida:\n'
+      +'   • Ambiente tranquilo, aire limpio y contacto con la naturaleza\n'
+      +'   • Zona de alto potencial de valorización en Lambayeque\n'
+      +'   • Proyecto con avance real verificable\n\n'
+      +'💰 BENEFICIOS FINANCIEROS\n'
+      +'   • Financiamiento 100% directo con Portada Blanca\n'
+      +'   • Sin banco, sin revisión de historial crediticio\n'
+      +'   • Inicial desde el 10% — fraccionable hasta en '+(maxC>1?maxC:2)+' cuotas\n'
+      +'   • Hasta 120 meses de financiamiento\n'
+      +'   • Precio de preventa: S/ '+fmt(precio)+'\n'
+      +'   • Cuota mensual: desde S/ '+fmtDec(cuota)+' al mes\n\n'
+      +'📈 INVERSIÓN QUE CRECE\n'
+      +'Lambayeque es una de las zonas de mayor crecimiento en la región. Comprar ahora en etapa de preventa es asegurar el mejor precio antes de que suba. Tu lote se valoriza con el tiempo — compres para vivir o para invertir.\n\n'
+      +'🚗 Visita sin compromiso — tenemos movilidad propia para recogerte.\n\n'
+      +'"La puerta de ingreso a tu felicidad" — Portada Blanca Constructora & Inmobiliaria';
+  } else if(pVal==='pdm'){
+    m17txt=cliente+', te cuento todo sobre Puerta del Mar — Pimentel 🌊\n\n'
+      +'Un proyecto residencial a metros de la carretera Chiclayo-Pimentel y a solo 3 minutos del balneario más querido del norte del Perú. Ubicación, mar y seguridad jurídica en un solo lugar. 🏡\n\n'
+      +'📍 UBICACIÓN\n'
+      +'Pimentel — a 50 metros de la carretera Chiclayo-Pimentel, a 3 minutos del balneario y a 15 minutos del centro de Chiclayo.\n\n'
+      +'🏗️ TIPO DE PRODUCTO\n'
+      +'Lotes residenciales desde S/ 98,000 — para construir tu casa de playa, tu hogar familiar o como inversión en una de las zonas de mayor demanda del norte.\n\n'
+      +'✅ ATRIBUTOS DEL PROYECTO\n'
+      +'🔐 Seguridad jurídica total:\n'
+      +'   • Partida Registral inscrita en Sunarp\n'
+      +'   • Licencia de Habilitación Urbana aprobada\n'
+      +'   • Certificado de Zonificación y Vías\n'
+      +'   • Plano de lotización y áreas comunes\n\n'
+      +'🏗️ Infraestructura y servicios:\n'
+      +'   • Luz, agua, desagüe\n'
+      +'   • Pistas y veredas\n'
+      +'   • Pórtico de ingreso\n'
+      +'   • Cerco perimétrico\n'
+      +'   • Áreas comunes\n\n'
+      +'🌊 Entorno y estilo de vida:\n'
+      +'   • A 3 minutos del mar de Pimentel\n'
+      +'   • Zona de alta demanda y valorización constante\n'
+      +'   • Acceso privilegiado a la playa más visitada del norte\n\n'
+      +'💰 BENEFICIOS FINANCIEROS\n'
+      +'   • Financiamiento 100% directo con Portada Blanca\n'
+      +'   • Sin banco, sin revisión de historial crediticio\n'
+      +'   • Inicial desde el 10% — fraccionable hasta en '+(maxC>1?maxC:2)+' cuotas\n'
+      +'   • Hasta 120 meses de financiamiento\n'
+      +'   • Precio actual: S/ '+fmt(precio)+'\n'
+      +'   • Cuota mensual: desde S/ '+fmtDec(cuota)+' al mes\n\n'
+      +'📈 INVERSIÓN QUE CRECE\n'
+      +'Pimentel es uno de los destinos más demandados de la costa norte. El precio de los lotes sube con cada etapa de avance de obras — comprar hoy es asegurar el menor precio y la mayor plusvalía futura.\n\n'
+      +'🚗 Visita sin compromiso — tenemos movilidad propia para recogerte.\n\n'
+      +'"La puerta de ingreso a tu felicidad" — Portada Blanca Constructora & Inmobiliaria';
+  } else {
+    m17txt=cliente+', selecciona un proyecto en el simulador para ver la ficha completa con todos sus atributos y beneficios. 📋';
+  }
+  set('m17',m17txt);
+}
+
+function set(id,txt){var el=document.getElementById(id);if(el)el.textContent=txt;}
+function showTab(id,btn){
+  document.querySelectorAll('.tab-panel').forEach(function(p){p.classList.remove('active');});
+  document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
+  btn.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
+function showSub(id,btn){
+  btn.closest('.tab-panel').querySelectorAll('.sub-panel').forEach(function(p){p.classList.remove('active');});
+  btn.closest('.sub-tabs-header').querySelectorAll('.sub-tab-btn').forEach(function(b){b.classList.remove('active');});
+  document.getElementById(id).classList.add('active');
+  btn.classList.add('active');
 }
 function copyMsg(id){
-  var el=document.getElementById(id);
-  if(!el)return;
+  var el=document.getElementById(id);if(!el)return;
   navigator.clipboard.writeText(el.textContent).then(function(){
     document.querySelectorAll('.copy-btn').forEach(function(b){
       if(b.getAttribute('onclick').includes("'"+id+"'")){b.innerHTML='<i class="ti ti-check"></i> ¡Copiado!';}
@@ -310,9 +674,6 @@ function copyMsg(id){
     },2000);
   });
 }
-['f-cliente','f-lote','f-precio','f-ini'].forEach(function(id){document.getElementById(id).addEventListener('input',renderAll);});
-['f-asesor','f-proyecto','f-plazo'].forEach(function(id){document.getElementById(id).addEventListener('change',renderAll);});
-renderAll();
 </script>
 </body>
 </html>
